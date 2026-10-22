@@ -1,0 +1,46 @@
+/* ONAHEYA v10 — poster-led offline library */
+.ona-download-action{display:inline-flex;flex-direction:column;gap:5px}.ona-download-action small{color:#a43d30;font-size:12px;max-width:260px}
+.ona-offline{max-width:1100px;margin:auto;padding:clamp(18px,3vw,36px);color:#284936}
+.ona-offline-header{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:18px 0 24px}
+.ona-offline-eyebrow{font-size:11px;letter-spacing:.19em;font-weight:700;color:#a96854}
+.ona-offline h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.4rem);margin:6px 0 8px}
+.ona-offline-header p{margin:0;color:#68756b}.ona-offline-count{background:#edf3ea;padding:9px 14px;border-radius:30px;font-size:13px;font-weight:650}
+.ona-offline-list{display:grid;gap:12px}.ona-offline-film{display:flex;align-items:center;gap:20px;background:#fffaf4;border:1px solid #e6ddcf;border-radius:18px;padding:12px;box-shadow:0 3px 16px #1e3a2b0a;min-width:0}
+.ona-offline-art{width:190px;aspect-ratio:16/10;flex:none;border-radius:12px;overflow:hidden;background:#d9e3da;display:grid;place-items:center;font-size:36px}
+.ona-offline-art img{width:100%;height:100%;object-fit:cover;display:block}
+.ona-offline-info{flex:1;min-width:0}.ona-offline-info h3{font-family:Georgia,serif;font-size:clamp(1.15rem,2vw,1.5rem);margin:0 0 7px}.ona-offline-info p{font-size:13px;color:#748078;margin:0 0 11px}.ona-offline-ready{font-size:12px;font-weight:650;color:#277747}
+.ona-offline-controls{display:flex;align-items:center;gap:9px}.ona-offline-controls button,.ona-offline-player button{cursor:pointer}
+.ona-offline-play{background:#284936;color:white;border:0;border-radius:30px;padding:12px 18px;font-weight:650;white-space:nowrap}
+.ona-offline-more{border:1px solid #d9dfd6;background:white;color:#284936;width:40px;height:40px;border-radius:50%;font-size:24px;line-height:1}
+.ona-offline-menu-wrap{position:relative}.ona-offline-menu{position:absolute;z-index:5;right:0;top:46px;background:white;border:1px solid #e6ddcf;border-radius:12px;box-shadow:0 10px 26px #142b2029;padding:5px;min-width:160px}.ona-offline-menu button{background:transparent;border:0;padding:11px;text-align:left;width:100%;color:#9b413c}
+.ona-offline-player{background:#17281f;color:white;border-radius:18px;padding:16px;margin:18px 0}.ona-offline-player-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.ona-offline-player h3{margin:0}.ona-offline-player small{font-size:12px;color:#b8d9bf}.ona-offline-player button{background:#fff;color:#284936;border:0;border-radius:30px;padding:9px 14px}.ona-offline-player video{display:block;width:100%;max-height:65vh;background:#000;border-radius:10px;margin:12px 0 0}
+.ona-offline-empty{text-align:center;background:#fffaf4;border:1px dashed #d9d0c5;padding:44px 20px;border-radius:20px}.ona-offline-empty span{font-size:40px}.ona-offline-empty h3{margin:12px 0}.ona-offline-empty p{color:#68756b;max-width:430px;margin:auto}.ona-offline-footnote{font-size:12px;color:#7b8279;margin-top:22px}.ona-offline-error{color:#a43d30}
+@media(max-width:650px){.ona-offline-film{gap:12px;padding:9px}.ona-offline-art{width:105px;aspect-ratio:3/4}.ona-offline-info h3{font-size:1.05rem}.ona-offline-info p{font-size:11px}.ona-offline-ready{font-size:11px}.ona-offline-controls{flex-direction:column;gap:5px}.ona-offline-play{padding:9px 11px}.ona-offline-play span{display:none}.ona-offline-more{width:33px;height:33px}}
+
+
+/* v17 — allow independent scrolling of the downloads screen inside ONAHEYA's app shell */
+.landing-page .screen-main:has(.ona-offline) {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior-y: contain;
+  align-items: flex-start;
+  scrollbar-width: thin;
+}
+.landing-page .screen-main:has(.ona-offline) .ona-offline {
+  min-height: min-content;
+  height: auto;
+  padding-bottom: 90px;
+}
+.ona-offline-unknown .ona-offline-more {
+  width: auto;
+  min-width: 120px;
+  height: auto;
+  padding: 10px 14px;
+  border-radius: 22px;
+  font-size: 12px;
+}
+@media (max-width: 700px) {
+  .landing-page .screen-main:has(.ona-offline) {
+    overflow: visible !important;
+  }
+}

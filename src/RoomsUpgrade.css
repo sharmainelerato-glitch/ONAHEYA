@@ -1,0 +1,1513 @@
+
+/* ==========================================
+   ONAHEYA — COZY ROOMS DESIGN UPGRADE
+   ========================================== */
+
+.room-form-screen,
+.saved-rooms-screen {
+  --room-forest: #284936;
+  --room-peach: #d78b6b;
+  --room-cream: #fff8ee;
+
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(12px, 2vh, 22px);
+  padding: 12px 0;
+}
+
+/* Headings */
+
+.room-form-intro {
+  text-align: center;
+}
+
+.room-form-intro .eyebrow,
+.saved-rooms-screen .eyebrow {
+  color: #bb7359;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  font-weight: 800;
+}
+
+.room-form-intro h2,
+.saved-rooms-screen h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 3.1rem);
+  color: #284936;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 6px 0;
+}
+
+.room-form-intro p {
+  font-size: 0.9rem;
+  color: #777567;
+  margin: 4px 0;
+}
+
+/* Beautiful form panel */
+
+.room-creation-form {
+  width: min(100%, 580px);
+  padding: clamp(18px, 3vh, 32px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 28px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      #f9e1cd 0%,
+      transparent 36%
+    ),
+    linear-gradient(135deg, #fffaf1, #f5e9d9);
+
+  box-shadow:
+    0 22px 65px #4f3b2720,
+    inset 0 1px 0 #ffffff;
+}
+
+/* Room name occupies full width */
+
+.room-creation-form label[for="room-name"],
+.room-creation-form #room-name {
+  grid-column: 1 / -1;
+}
+
+.room-creation-form label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #385541;
+}
+
+.room-creation-form input,
+.room-creation-form select {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 16px;
+  background: #ffffffdc;
+  border: 1px solid #ded6c8;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #284936;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Align mood/privacy controls */
+
+.room-creation-form label[for="room-mood"] {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.room-creation-form label[for="room-privacy"] {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.room-creation-form #room-mood {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.room-creation-form #room-privacy {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.room-creation-form input:focus,
+.room-creation-form select:focus {
+  outline: none;
+  border-color: #b9765c;
+  box-shadow: 0 0 0 4px #d78b6b25;
+}
+
+.room-creation-form input::placeholder {
+  color: #a5a298;
+}
+
+/* Buttons */
+
+.room-creation-form .room-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.room-form-screen .primary-btn,
+.saved-rooms-screen .primary-btn {
+  background: #284936;
+  color: white;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px #2849362a;
+  font-weight: 700;
+  padding: 13px 24px;
+  transition: transform 0.2s;
+}
+
+.room-form-screen .secondary-btn,
+.saved-rooms-screen .secondary-btn {
+  border: 1px solid #dcd4c7;
+  background: #fffaf2;
+  border-radius: 999px;
+  color: #284936;
+}
+
+.room-form-screen button:hover,
+.saved-rooms-screen button:hover {
+  transform: translateY(-2px);
+}
+
+/* MY WATCH PARTIES */
+
+.saved-rooms-screen {
+  align-items: stretch;
+  text-align: center;
+}
+
+.saved-rooms-screen > .eyebrow,
+.saved-rooms-screen > h2 {
+  flex-shrink: 0;
+}
+
+.saved-rooms-screen > h2 {
+  margin: 0;
+}
+
+.saved-room-list {
+  display: flex;
+  flex: 0 1 auto;
+  gap: 18px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 14px 5px 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.saved-room-card {
+  position: relative;
+  flex: 0 0 min(310px, 85vw);
+  min-width: 0;
+  min-height: 240px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 24px;
+  color: white;
+  border: 1px solid #ffffff55;
+  border-radius: 26px;
+  overflow: hidden;
+  scroll-snap-align: start;
+
+  background:
+    linear-gradient(
+      0deg,
+      #142c27f5 0%,
+      #284936a3 45%,
+      #4f4b3c20 100%
+    ),
+    url("/images/shared-room.jpg")
+      center / cover no-repeat;
+
+  box-shadow: 0 16px 36px #38261d28;
+  transition: transform 0.25s ease;
+}
+
+.saved-room-card:nth-child(3n + 2) {
+  background:
+    linear-gradient(0deg, #453026f0, #a9746570),
+    url("/images/tokyo.jpg") center / cover;
+}
+
+.saved-room-card:nth-child(3n + 3) {
+  background:
+    linear-gradient(0deg, #223e38f0, #768c7470),
+    url("/images/london.jpg") center / cover;
+}
+
+.saved-room-card:hover {
+  transform: translateY(-4px);
+}
+
+.saved-room-card h3 {
+  color: #fffaf0;
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.saved-room-card p {
+  color: #fff5e8;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.saved-room-card strong {
+  display: inline-block;
+  background: #ffffff35;
+  border: 1px solid #ffffff50;
+  border-radius: 8px;
+  padding: 5px 9px;
+  letter-spacing: 0.13em;
+  color: white;
+}
+
+.saved-room-card .secondary-btn {
+  margin-top: 6px;
+  align-self: flex-start;
+  background: #fff8ee;
+  color: #284936;
+  border: none;
+}
+
+/* Action buttons below rooms */
+
+.saved-rooms-screen > .room-form-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Keyboard accessibility */
+
+.room-form-screen button:focus-visible,
+.saved-rooms-screen button:focus-visible {
+  outline: 3px solid #d78b6b;
+  outline-offset: 3px;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .room-form-screen,
+  .saved-rooms-screen {
+    justify-content: flex-start;
+    overflow-y: auto;
+    gap: 12px;
+    padding: 12px 4px;
+  }
+
+  .room-creation-form {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .room-form-intro h2 {
+    font-size: clamp(1.6rem, 7vw, 2.3rem);
+  }
+
+  .room-creation-form input,
+  .room-creation-form select {
+    padding: 11px 13px;
+  }
+
+  .room-creation-form .room-form-actions {
+    margin-top: 8px;
+  }
+
+  .saved-room-card {
+    flex-basis: 85%;
+    min-height: 215px;
+  }
+
+  .saved-room-list {
+    flex-shrink: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .saved-room-card,
+  .room-form-screen button,
+  .saved-rooms-screen button {
+    transition: none;
+  }
+}
+/* ==========================================
+   ONAHEYA — LIVE ROOM MOOD PREVIEW
+   ========================================== */
+
+.room-builder-layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(320px, 580px) minmax(280px, 420px);
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.live-room-preview {
+  position: relative;
+  border-radius: 28px;
+  padding: 22px;
+  color: white;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 20px 45px rgba(58, 36, 22, 0.18);
+}
+
+.preview-badge {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.preview-room-name {
+  font-family: Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+  line-height: 1.05;
+}
+
+.preview-room-subtitle {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.preview-room-description {
+  margin-top: 10px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  max-width: 32ch;
+  opacity: 0.95;
+}
+
+.preview-mini-room {
+  position: relative;
+  margin-top: 22px;
+  flex: 1;
+  min-height: 220px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.preview-tv {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  width: 58%;
+  height: 44%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(20, 20, 20, 0.35);
+  border: 8px solid rgba(45, 36, 29, 0.8);
+  text-align: center;
+  box-shadow: 0 15px 24px rgba(0, 0, 0, 0.18);
+}
+
+.preview-tv span {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+}
+
+.preview-tv small {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  opacity: 0.92;
+}
+
+.preview-floating {
+  position: absolute;
+  min-width: 86px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+}
+
+.preview-top-left {
+  top: 14px;
+  left: 14px;
+}
+
+.preview-top-right {
+  top: 14px;
+  right: 14px;
+}
+
+.preview-bottom-left {
+  bottom: 14px;
+  left: 14px;
+}
+
+.preview-bottom-right {
+  bottom: 14px;
+  right: 14px;
+}
+
+.preview-meta {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.preview-meta span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* Mood themes */
+
+.live-room-preview.mood-cozy {
+  background:
+    radial-gradient(circle at top right, rgba(255, 226, 184, 0.45), transparent 30%),
+    linear-gradient(135deg, #89644c, #d8a778, #5d7b65);
+}
+
+.live-room-preview.mood-sunset {
+  background:
+    radial-gradient(circle at top right, rgba(255, 237, 190, 0.55), transparent 35%),
+    linear-gradient(135deg, #c26a55, #e7a15f, #6f7f6b);
+}
+
+.live-room-preview.mood-rainy {
+  background:
+    radial-gradient(circle at top right, rgba(219, 231, 241, 0.3), transparent 35%),
+    linear-gradient(135deg, #5f6f7d, #7f90a0, #4d5c68);
+}
+
+.live-room-preview.mood-late-night {
+  background:
+    radial-gradient(circle at top right, rgba(114, 131, 181, 0.22), transparent 35%),
+    linear-gradient(135deg, #182130, #24324a, #3d3152);
+}
+
+.live-room-preview.mood-romance {
+  background:
+    radial-gradient(circle at top right, rgba(255, 227, 219, 0.35), transparent 35%),
+    linear-gradient(135deg, #a85f73, #d78b87, #7d5965);
+}
+
+@media (max-width: 900px) {
+  .room-builder-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .live-room-preview {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 700px) {
+  .live-room-preview {
+    min-height: 300px;
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .preview-tv {
+    width: 62%;
+    height: 42%;
+  }
+
+  .preview-tv span {
+    font-size: 1.15rem;
+  }
+
+  .preview-floating {
+    min-width: 72px;
+    font-size: 0.68rem;
+    padding: 7px 8px;
+  }
+}
+
+/* =========================================
+   ONAHEYA — MOOD-SPECIFIC DECORATIONS
+========================================= */
+
+.preview-mini-room {
+  isolation: isolate;
+}
+
+.mood-decorations {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.preview-tv,
+.preview-floating {
+  z-index: 2;
+}
+
+.mood-decorations > div {
+  position: absolute;
+  inset: 0;
+}
+
+/* COZY — FLOATING GOLDEN SPARKLES */
+
+.golden-sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffe5a1;
+  box-shadow: 0 0 13px 5px #ffc66a75;
+  animation: cozyGlow 3.5s ease-in-out infinite alternate;
+}
+
+.golden-sparkle:nth-child(1) { left: 12%; top: 25%; }
+.golden-sparkle:nth-child(2) { left: 24%; top: 65%; animation-delay: -1s; }
+.golden-sparkle:nth-child(3) { left: 37%; top: 14%; animation-delay: -2s; }
+.golden-sparkle:nth-child(4) { left: 53%; top: 76%; animation-delay: -.8s; }
+.golden-sparkle:nth-child(5) { left: 69%; top: 19%; animation-delay: -1.7s; }
+.golden-sparkle:nth-child(6) { left: 83%; top: 58%; animation-delay: -2.5s; }
+.golden-sparkle:nth-child(7) { left: 16%; top: 82%; animation-delay: -.4s; }
+.golden-sparkle:nth-child(8) { left: 77%; top: 83%; animation-delay: -1.3s; }
+.golden-sparkle:nth-child(9) { left: 89%; top: 32%; animation-delay: -2.8s; }
+
+@keyframes cozyGlow {
+  from { opacity: .25; transform: scale(.7) translateY(5px); }
+  to { opacity: 1; transform: scale(1.5) translateY(-9px); }
+}
+
+/* SUNSET — GLOWING SUN */
+
+.sunset-sun {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  right: 7%;
+  top: 5%;
+  border-radius: 50%;
+  background: #ffdc91;
+  box-shadow: 0 0 50px 22px #ffd18b66;
+  animation: sunsetGlow 5s ease-in-out infinite alternate;
+}
+
+.sunset-rays {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 80% 25%,
+    #ffe3a355,
+    transparent 55%
+  );
+}
+
+@keyframes sunsetGlow {
+  from { opacity: .65; transform: scale(.9); }
+  to { opacity: 1; transform: scale(1.08); }
+}
+
+/* RAINY — SOFT FALLING RAIN */
+
+.rain-decor {
+  background: linear-gradient(
+    180deg,
+    #b2cee414,
+    transparent
+  );
+}
+
+.rain-drop {
+  position: absolute;
+  top: -25px;
+  width: 1.5px;
+  height: 24px;
+  border-radius: 3px;
+  background: linear-gradient(
+    transparent,
+    #d3e9fbab
+  );
+  animation: fallingRain 1.8s linear infinite;
+}
+
+.rain-drop:nth-child(1) { left: 4%; animation-delay: -.2s; }
+.rain-drop:nth-child(2) { left: 10%; animation-delay: -1.3s; }
+.rain-drop:nth-child(3) { left: 17%; animation-delay: -.7s; }
+.rain-drop:nth-child(4) { left: 23%; animation-delay: -1.6s; }
+.rain-drop:nth-child(5) { left: 30%; animation-delay: -.4s; }
+.rain-drop:nth-child(6) { left: 36%; animation-delay: -1s; }
+.rain-drop:nth-child(7) { left: 43%; animation-delay: -1.8s; }
+.rain-drop:nth-child(8) { left: 49%; animation-delay: -.9s; }
+.rain-drop:nth-child(9) { left: 55%; animation-delay: -1.4s; }
+.rain-drop:nth-child(10) { left: 61%; animation-delay: -.3s; }
+.rain-drop:nth-child(11) { left: 68%; animation-delay: -1.1s; }
+.rain-drop:nth-child(12) { left: 74%; animation-delay: -.5s; }
+.rain-drop:nth-child(13) { left: 80%; animation-delay: -1.7s; }
+.rain-drop:nth-child(14) { left: 86%; animation-delay: -.8s; }
+.rain-drop:nth-child(15) { left: 92%; animation-delay: -1.5s; }
+.rain-drop:nth-child(16) { left: 97%; animation-delay: -.6s; }
+.rain-drop:nth-child(17) { left: 14%; animation-delay: -1.2s; }
+.rain-drop:nth-child(18) { left: 65%; animation-delay: -1.9s; }
+
+@keyframes fallingRain {
+  from { transform: translateY(-30px) translateX(0); opacity: 0; }
+  12% { opacity: .8; }
+  to { transform: translateY(320px) translateX(-40px); opacity: 0; }
+}
+
+/* LATE NIGHT — MOON AND STARS */
+
+.night-moon {
+  position: absolute;
+  right: 9%;
+  top: 8%;
+  font-size: 65px;
+  color: #f9e7b2;
+  text-shadow: 0 0 28px #fbe4a87c;
+}
+
+.night-star {
+  position: absolute;
+  color: #fbe9c9;
+  font-size: 10px;
+  animation: starTwinkle 2.7s ease-in-out infinite alternate;
+}
+
+.night-star:nth-child(2) { top: 12%; left: 10%; }
+.night-star:nth-child(3) { top: 28%; left: 22%; animation-delay: -.7s; }
+.night-star:nth-child(4) { top: 17%; left: 43%; animation-delay: -1.4s; }
+.night-star:nth-child(5) { top: 68%; left: 12%; animation-delay: -.3s; }
+.night-star:nth-child(6) { top: 76%; left: 37%; animation-delay: -1.2s; }
+.night-star:nth-child(7) { top: 84%; left: 67%; animation-delay: -2s; }
+.night-star:nth-child(8) { top: 52%; left: 87%; animation-delay: -.9s; }
+.night-star:nth-child(9) { top: 9%; left: 63%; animation-delay: -1.7s; }
+.night-star:nth-child(10) { top: 89%; left: 91%; animation-delay: -.5s; }
+.night-star:nth-child(11) { top: 42%; left: 7%; animation-delay: -1.1s; }
+.night-star:nth-child(12) { top: 33%; left: 75%; animation-delay: -2.1s; }
+.night-star:nth-child(13) { top: 91%; left: 18%; animation-delay: -1.5s; }
+
+@keyframes starTwinkle {
+  from { opacity: .15; transform: scale(.65); }
+  to { opacity: 1; transform: scale(1.3); }
+}
+
+/* ROMANCE — CANDLELIGHT AND HEARTS */
+
+.romance-candle {
+  position: absolute;
+  right: 12%;
+  bottom: 16%;
+  width: 25px;
+  height: 54px;
+}
+
+.candle-body {
+  position: absolute;
+  bottom: 0;
+  width: 25px;
+  height: 38px;
+  background: linear-gradient(90deg, #fbead9, #fffaf0);
+  border-radius: 5px 5px 3px 3px;
+  box-shadow: 0 0 15px #ffcf9d55;
+}
+
+.candle-flame {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  width: 12px;
+  height: 18px;
+  background: #ffe29a;
+  border-radius: 70% 20% 70% 30%;
+  transform: rotate(45deg);
+  box-shadow: 0 0 24px 12px #ffd28970;
+  animation: candleFlicker 1.3s ease-in-out infinite alternate;
+}
+
+.romance-heart {
+  position: absolute;
+  font-size: 15px;
+  color: #ffe0df;
+  opacity: .65;
+  animation: heartFloat 4s ease-in-out infinite alternate;
+}
+
+.romance-heart:nth-child(2) { top: 18%; left: 14%; }
+.romance-heart:nth-child(3) { top: 43%; left: 8%; animation-delay: -.7s; }
+.romance-heart:nth-child(4) { top: 75%; left: 20%; animation-delay: -1.3s; }
+.romance-heart:nth-child(5) { top: 12%; left: 57%; animation-delay: -2s; }
+.romance-heart:nth-child(6) { top: 82%; left: 72%; animation-delay: -.5s; }
+.romance-heart:nth-child(7) { top: 27%; left: 85%; animation-delay: -1.6s; }
+.romance-heart:nth-child(8) { top: 62%; left: 61%; animation-delay: -2.3s; }
+.romance-heart:nth-child(9) { top: 90%; left: 42%; animation-delay: -.9s; }
+
+@keyframes candleFlicker {
+  from { opacity: .75; transform: rotate(40deg) scale(.9); }
+  to { opacity: 1; transform: rotate(52deg) scale(1.08); }
+}
+
+@keyframes heartFloat {
+  from { transform: translateY(7px); opacity: .25; }
+  to { transform: translateY(-12px); opacity: .85; }
+}
+
+/* Respect reduced motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .mood-decorations *,
+  .mood-decorations *::before,
+  .mood-decorations *::after {
+    animation: none !important;
+  }
+}
+/* ==========================================
+   ONAHEYA — LIVE ROOM PREVIEW WITH IMAGES
+   ========================================== */
+
+.preview-mini-room {
+  isolation: isolate;
+}
+
+.preview-floating-card {
+  position: absolute;
+  width: 92px;
+  height: 72px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ddd;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  z-index: 2;
+}
+
+.preview-floating-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
+.preview-floating-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(17, 15, 13, 0.58),
+    rgba(17, 15, 13, 0.06)
+  );
+  pointer-events: none;
+}
+
+.preview-floating-card span {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  z-index: 3;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: white;
+  background: rgba(19, 20, 21, 0.58);
+  padding: 4px 7px;
+  border-radius: 999px;
+}
+
+.preview-top-left {
+  top: 14px;
+  left: 14px;
+}
+
+.preview-top-right {
+  top: 14px;
+  right: 14px;
+}
+
+.preview-bottom-left {
+  bottom: 14px;
+  left: 14px;
+}
+
+.preview-bottom-right {
+  bottom: 14px;
+  right: 14px;
+}
+
+/* TV with actual image */
+.preview-tv-image {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  width: 58%;
+  height: 44%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(20, 20, 20, 0.35);
+  border: 8px solid rgba(45, 36, 29, 0.85);
+  box-shadow: 0 15px 24px rgba(0, 0, 0, 0.18);
+  z-index: 2;
+}
+
+.preview-tv-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-tv-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  text-align: center;
+  padding: 12px;
+  background: linear-gradient(
+    to top,
+    rgba(17, 15, 13, 0.72),
+    rgba(17, 15, 13, 0.1)
+  );
+  color: white;
+}
+
+.preview-tv-overlay span {
+  font-family: Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.preview-tv-overlay small {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  opacity: 0.94;
+}
+
+/* Keep mood effects behind the image cards */
+.mood-decorations {
+  z-index: 0;
+}
+
+@media (max-width: 700px) {
+  .preview-floating-card {
+    width: 78px;
+    height: 62px;
+  }
+
+  .preview-floating-card span {
+    font-size: 0.55rem;
+    padding: 3px 6px;
+  }
+
+  .preview-tv-image {
+    width: 62%;
+    height: 42%;
+  }
+
+  .preview-tv-overlay span {
+    font-size: 1rem;
+  }
+
+  .preview-tv-overlay small {
+    font-size: 0.66rem;
+  }
+}
+
+/* ==========================================
+   ONAHEYA — COMPACT LIVE ROOM LAYOUT
+   ========================================== */
+
+.room-form-screen {
+  height: 100%;
+  min-height: 0;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 18px;
+  overflow-y: auto;
+}
+
+.room-form-intro h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+  margin: 4px 0;
+}
+
+.room-form-intro p {
+  font-size: 0.82rem;
+}
+
+.room-builder-layout {
+  width: 100%;
+  max-width: 920px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* Smaller, cleaner form */
+
+.room-creation-form {
+  width: 100%;
+  padding: 20px;
+  gap: 8px 14px;
+  border-radius: 22px;
+  align-content: center;
+}
+
+.room-creation-form input,
+.room-creation-form select {
+  padding: 10px 12px;
+  font-size: 0.85rem;
+}
+
+.room-creation-form .room-form-actions {
+  margin-top: 8px;
+}
+
+/* Compact preview */
+
+.live-room-preview {
+  min-height: 0;
+  height: 340px;
+  padding: 16px;
+  border-radius: 22px;
+}
+
+.preview-badge {
+  margin-bottom: 8px;
+  font-size: 0.62rem;
+}
+
+.preview-room-name {
+  font-size: 1.45rem;
+}
+
+.preview-room-subtitle {
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.preview-room-description {
+  font-size: 0.74rem;
+  line-height: 1.35;
+  margin-top: 6px;
+}
+
+.preview-mini-room {
+  min-height: 145px;
+  margin-top: 12px;
+}
+
+/* Smaller participant photos */
+
+.preview-floating-card {
+  width: 74px;
+  height: 54px;
+  border-radius: 10px;
+}
+
+.preview-floating-card span {
+  font-size: 0.55rem;
+  padding: 3px 5px;
+}
+
+/* Smaller television */
+
+.preview-tv-image {
+  width: 54%;
+  height: 46%;
+  border-width: 5px;
+  border-radius: 13px;
+}
+
+.preview-tv-overlay span {
+  font-size: 0.9rem;
+}
+
+.preview-tv-overlay small {
+  font-size: 0.6rem;
+}
+
+/* Compact mood/privacy labels */
+
+.preview-meta {
+  margin-top: 10px;
+  gap: 6px;
+}
+
+.preview-meta span {
+  padding: 5px 9px;
+  font-size: 0.65rem;
+}
+
+/* Responsive layouts */
+
+@media (max-width: 900px) {
+  .room-builder-layout {
+    max-width: 560px;
+    grid-template-columns: 1fr;
+  }
+
+  .live-room-preview {
+    height: 300px;
+  }
+}
+
+@media (max-width: 700px) {
+  .room-form-screen {
+    justify-content: flex-start;
+    padding: 10px;
+  }
+
+  .room-creation-form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .live-room-preview {
+    height: 285px;
+    flex-shrink: 0;
+  }
+
+  .preview-mini-room {
+    min-height: 130px;
+  }
+}
+
+/* ==========================================
+   ONAHEYA — BALANCED ROOM SIZE
+   Slightly larger, still compact
+========================================= */
+
+.room-form-screen {
+  gap: 14px;
+  padding: 12px 18px;
+}
+
+.room-form-intro h2 {
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+}
+
+.room-builder-layout {
+  max-width: 1050px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 20px;
+}
+
+/* Larger form */
+
+.room-creation-form {
+  padding: 24px;
+  gap: 11px 16px;
+}
+
+.room-creation-form input,
+.room-creation-form select {
+  padding: 12px 14px;
+  font-size: 0.9rem;
+}
+
+/* Larger live preview */
+
+.live-room-preview {
+  height: 390px;
+  padding: 20px;
+}
+
+.preview-room-name {
+  font-size: 1.65rem;
+}
+
+.preview-room-subtitle {
+  font-size: 0.9rem;
+}
+
+.preview-room-description {
+  font-size: 0.8rem;
+}
+
+.preview-mini-room {
+  min-height: 175px;
+  margin-top: 15px;
+}
+
+/* Slightly larger photos */
+
+.preview-floating-card {
+  width: 84px;
+  height: 64px;
+}
+
+/* Larger TV */
+
+.preview-tv-image {
+  width: 57%;
+  height: 46%;
+  border-width: 6px;
+}
+
+.preview-tv-overlay span {
+  font-size: 1rem;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .room-builder-layout {
+    max-width: 580px;
+    grid-template-columns: 1fr;
+  }
+
+  .live-room-preview {
+    height: 330px;
+  }
+}
+
+@media (max-width: 700px) {
+  .room-creation-form {
+    padding: 18px;
+  }
+
+  .live-room-preview {
+    height: 310px;
+  }
+
+  .preview-mini-room {
+    min-height: 145px;
+  }
+}
+
+/* ==========================================
+   ONAHEYA — SAVED ROOM MOOD CARDS
+========================================== */
+
+.saved-room-card.saved-mood-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  flex: 0 0 min(320px, 85vw);
+  min-height: 290px;
+  padding: 0;
+
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,.3);
+
+  text-align: left;
+  color: #fffaf2;
+
+  box-shadow: 0 15px 35px rgba(43,34,28,.16);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.saved-room-card.saved-mood-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 42px rgba(43,34,28,.22);
+}
+
+/* Atmospheric backgrounds */
+
+.saved-room-card.saved-mood-card.mood-cozy {
+  background:
+    linear-gradient(180deg, #b7895670, #483526ee),
+    url("/images/shared-room.jpg")
+    center / cover no-repeat;
+}
+
+.saved-room-card.saved-mood-card.mood-sunset {
+  background:
+    linear-gradient(180deg, #e9a45e75, #934d45ef),
+    url("/images/shared-room.jpg")
+    center / cover no-repeat;
+}
+
+.saved-room-card.saved-mood-card.mood-rainy {
+  background:
+    linear-gradient(180deg, #829bab80, #253e53f0),
+    url("/images/shared-room.jpg")
+    center / cover no-repeat;
+}
+
+.saved-room-card.saved-mood-card.mood-late-night {
+  background:
+    linear-gradient(180deg, #34406095, #15192df5),
+    url("/images/shared-room.jpg")
+    center / cover no-repeat;
+}
+
+.saved-room-card.saved-mood-card.mood-romance {
+  background:
+    linear-gradient(180deg, #e5a2ab80, #854c65ee),
+    url("/images/shared-room.jpg")
+    center / cover no-repeat;
+}
+
+/* Keep animations behind the content */
+
+.saved-mood-card > .mood-decorations {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* The content is always readable */
+
+.saved-mood-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  min-height: 290px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 20px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(10,20,18,.05),
+    transparent 25%,
+    rgba(10,20,18,.35) 65%,
+    rgba(10,20,18,.58)
+  );
+}
+
+/* Top badges */
+
+.saved-mood-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.saved-mood-badge,
+.saved-privacy-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.19);
+  border: 1px solid rgba(255,255,255,.3);
+
+  backdrop-filter: blur(8px);
+
+  font-size: .73rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Bottom content */
+
+.saved-mood-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.saved-room-card .saved-mood-eyebrow {
+  font-size: .62rem;
+  letter-spacing: .15em;
+  font-weight: 800;
+  color: #ffede0;
+}
+
+.saved-room-card .saved-mood-bottom h3 {
+  color: white;
+  font-family: Georgia, serif;
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  line-height: 1.1;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.saved-room-card .saved-mood-description {
+  font-size: .78rem;
+  color: #fff2e7;
+}
+
+/* Invitation code */
+
+.saved-invite-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  margin-top: 10px;
+  padding: 11px 12px;
+
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.22);
+
+  backdrop-filter: blur(10px);
+}
+
+.saved-invite-box > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.saved-invite-box small {
+  font-size: .57rem;
+  letter-spacing: .12em;
+  color: #fff5eb;
+}
+
+.saved-invite-box strong {
+  display: block;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: .98rem;
+  letter-spacing: .15em;
+}
+
+.saved-copy-button {
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 9px 15px;
+
+  background: #fff9f0;
+  color: #284936;
+
+  font-family: inherit;
+  font-size: .76rem;
+  font-weight: 800;
+
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+
+.saved-copy-button:hover {
+  transform: translateY(-2px);
+}
+
+.saved-copy-button:focus-visible {
+  outline: 3px solid #ffe09c;
+  outline-offset: 3px;
+}
+
+/* Rain animations across saved cards */
+
+.saved-mood-card .rain-drop {
+  animation-duration: 1.9s;
+}
+
+/* Gentle glow for Romance */
+
+.saved-mood-card.mood-romance::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 80% 25%,
+      rgba(255,194,171,.26),
+      transparent 42%
+    );
+}
+
+/* Responsiveness */
+
+@media (max-width: 700px) {
+  .saved-room-card.saved-mood-card {
+    flex-basis: min(290px, 85vw);
+    min-height: 270px;
+  }
+
+  .saved-mood-content {
+    min-height: 270px;
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .saved-room-card.saved-mood-card {
+    transition: none;
+  }
+}
+.saved-mood-bottom > .saved-copy-button {
+  width: 100%;
+  padding: 11px 16px;
+  margin-top: 5px;
+  text-align: center;
+  background: #fff9ef;
+  color: #284936;
+}
+
+/* ONAHEYA — LIVE WATCH TOGETHER */
+
+.my-rooms-live-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.my-rooms-live-action .primary-btn {
+  padding: 12px 25px;
+  border-radius: 999px;
+  background: #284936;
+  color: #fffaf1;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(40, 73, 54, 0.2);
+}
+
+.my-rooms-live-action .primary-btn:hover {
+  transform: translateY(-2px);
+}

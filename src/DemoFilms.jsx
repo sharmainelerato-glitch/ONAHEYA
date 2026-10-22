@@ -1,0 +1,10 @@
+// Demo-only, locally hosted films. ONAHEYA does not provide commercial-movie streaming rights.
+// Place the named MP4 files in public/videos/. Big Buck Bunny reuses the existing demo.
+export const DEMO_FILMS = [
+  {id:"big-buck-bunny",title:"Big Buck Bunny",year:2008,genre:"Animation · Comedy",runtime:"10 min",file:"/videos/onaheya-demo.mov",credit:"© 2008 Blender Foundation · CC BY 3.0",source:"https://peach.blender.org/",description:"A gentle giant of a rabbit turns the tables on three troublesome forest animals.",tone:"peach"},
+  {id:"sintel",title:"Sintel",year:2010,genre:"Fantasy · Adventure",runtime:"15 min",file:"/videos/sintel.mp4",credit:"© Blender Foundation · Creative Commons Attribution",source:"https://studio.blender.org/films/",description:"A young woman searches for a dragon she once befriended.",tone:"night"},
+  {id:"tears-of-steel",title:"Tears of Steel",year:2012,genre:"Sci-Fi · Drama",runtime:"12 min",file:"/videos/tears-of-steel.mp4",credit:"© Blender Foundation · Creative Commons Attribution",source:"https://mango.blender.org/about/",description:"A team of scientists tries to change the past to save the future.",tone:"steel"},
+  {id:"alice-1903",title:"Alice in Wonderland",year:1903,genre:"Fantasy · Silent classic",runtime:"8 min",file:"/videos/alice-in-wonderland-1903.webm",credit:"1903 film by Cecil Hepworth and Percy Stow · public domain",source:"https://commons.wikimedia.org/wiki/File:Alice_In_Wonderland_(1903)_-_Public_Domain_Silent_Fantasy.webm",description:"A pioneering silent-film adaptation of Lewis Carroll’s beloved book.",tone:"alice",bookId:"alice-wonderland"},
+  {id:"spring",title:"Spring",year:2019,genre:"Fantasy · Animation",runtime:"8 min",file:"/videos/spring.mp4",credit:"© Blender Animation Studio · Creative Commons Attribution",source:"https://studio.blender.org/films/",description:"A shepherd girl and her dog encounter ancient spirits in the mountains.",tone:"forest"},
+];
+export const demoFilmById = id => DEMO_FILMS.find(f => f.id === id) || DEMO_FILMS[0];

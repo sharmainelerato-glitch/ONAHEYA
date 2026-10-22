@@ -1,0 +1,336 @@
+
+/* =========================================
+   ONAHEYA — CINEMATIC ABOUT PAGE
+   ========================================= */
+
+/* Main two-column About layout */
+
+.landing-page .about-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: clamp(16px, 3vw, 36px);
+  min-height: 0;
+  padding: 12px 0;
+}
+
+/* Left-side content */
+
+.landing-page .about-content {
+  min-width: 0;
+}
+
+.landing-page .about-content h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 4vw, 4.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin: 12px 0 18px;
+  color: #264d3b;
+}
+
+.landing-page .about-content h2 span {
+  color: #c96b4b;
+}
+
+.landing-page .about-content p {
+  color: #5f675f;
+  line-height: 1.6;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  margin-bottom: 14px;
+}
+
+.landing-page .about-content .primary-btn {
+  margin-top: 12px;
+}
+
+/* Right-side cinematic card */
+
+.landing-page .about-cinematic {
+  position: relative;
+  width: 100%;
+  height: min(65vh, 480px);
+  min-height: 250px;
+  border-radius: 30px;
+  overflow: hidden;
+  isolation: isolate;
+  display: block;
+  background: #48362d;
+  box-shadow: 0 22px 55px rgba(65, 37, 22, 0.2);
+}
+
+/* Cinematic background image */
+
+.about-image-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 26, 22, 0.28) 0%,
+      rgba(30, 22, 16, 0.12) 45%,
+      rgba(30, 22, 16, 0.75) 100%
+    ),
+    url("/images/shared-room.jpg") center / cover no-repeat;
+
+  transform: scale(1.03);
+}
+
+/* Decorative headline */
+
+.about-scene-heading {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  text-align: center;
+  color: #fffaf5;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.65);
+}
+
+.about-scene-heading > span {
+  font-size: clamp(0.65rem, 1vw, 0.85rem);
+  letter-spacing: 0.07em;
+}
+
+.about-scene-heading h3 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 2.4rem);
+  font-weight: normal;
+  line-height: 1.05;
+  margin: 8px 0;
+}
+
+.about-scene-heading em {
+  color: #ffc4a9;
+}
+
+/* Participant cards */
+
+.about-participants {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-person {
+  position: absolute;
+  width: 29%;
+  height: 25%;
+  border: 2px solid rgba(255, 248, 229, 0.9);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #564b44;
+  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.about-person img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.about-person span {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 7px;
+  border-radius: 20px;
+  background: rgba(27, 32, 27, 0.88);
+  color: white;
+  font-size: clamp(0.55rem, 0.8vw, 0.72rem);
+  font-style: normal;
+}
+
+.about-person i {
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  flex-shrink: 0;
+  background: #55d879;
+  border-radius: 50%;
+}
+
+/* Individual participant positioning */
+
+.about-top-left {
+  top: 29%;
+  left: 4%;
+  transform: rotate(-5deg);
+}
+
+.about-top-right {
+  top: 29%;
+  right: 4%;
+  transform: rotate(5deg);
+}
+
+.about-bottom-left {
+  bottom: 18%;
+  left: 9%;
+  transform: rotate(4deg);
+}
+
+.about-bottom-right {
+  bottom: 18%;
+  right: 9%;
+  transform: rotate(-4deg);
+}
+
+/* Connection indicator */
+
+.about-connected {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  z-index: 4;
+  transform: translateX(-50%);
+
+  width: max-content;
+  max-width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+
+  background: rgba(255, 249, 237, 0.94);
+  backdrop-filter: blur(12px);
+
+  color: #284737;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.connected-pulse {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #45b66d;
+  box-shadow: 0 0 0 5px rgba(69, 182, 109, 0.2);
+}
+
+.about-connected div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.about-connected strong {
+  font-size: 0.78rem;
+}
+
+.about-connected small {
+  font-size: 0.65rem;
+  color: #647465;
+}
+
+/* Tablets */
+
+@media (max-width: 900px) {
+  .landing-page .about-section {
+    gap: 16px;
+  }
+
+  .landing-page .about-cinematic {
+    height: min(56vh, 430px);
+  }
+
+  .landing-page .about-content h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+  }
+}
+
+/* Mobile devices */
+
+@media (max-width: 700px) {
+  .landing-page .about-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 10px;
+    padding: 10px 0;
+    height: 100%;
+  }
+
+  .landing-page .about-content h2 {
+    font-size: clamp(1.7rem, 7vw, 2.6rem);
+    margin: 6px 0 10px;
+  }
+
+  .landing-page .about-content p {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    margin: 6px 0;
+  }
+
+  .landing-page .about-content .primary-btn {
+    margin-top: 8px;
+    padding: 10px 16px;
+  }
+
+  .landing-page .about-cinematic {
+    height: 100%;
+    min-height: 0;
+    border-radius: 20px;
+  }
+
+  .about-person {
+    width: 30%;
+    height: 26%;
+  }
+
+  .about-scene-heading {
+    top: 4%;
+  }
+
+  .about-scene-heading h3 {
+    font-size: clamp(1.15rem, 5vw, 1.7rem);
+    margin: 4px 0;
+  }
+
+  .about-connected {
+    padding: 6px 10px;
+  }
+}
+
+/* Short laptop screens */
+
+@media (max-height: 650px) and (min-width: 701px) {
+  .landing-page .about-cinematic {
+    height: min(52vh, 350px);
+    min-height: 180px;
+  }
+
+  .landing-page .about-content h2 {
+    margin: 5px 0 10px;
+  }
+
+  .landing-page .about-content p {
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image-background {
+    transform: none;
+  }
+
+  .about-person {
+    transition: none;
+  }
+}

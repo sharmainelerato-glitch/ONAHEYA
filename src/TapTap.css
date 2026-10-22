@@ -1,0 +1,184 @@
+
+/* =========================================
+   ONAHEYA — COMPACT TAPTAP
+   Small, discreet, chat-friendly layout
+========================================= */
+
+.ona-taptap {
+  width: 100%;
+  max-width: 100%;
+  margin: 6px 0;
+  padding: 8px 10px;
+  background: #fff9f1;
+  border: 1px solid #e6ddd1;
+  border-radius: 12px;
+  color: #264d3b;
+  box-sizing: border-box;
+}
+
+/* Compact heading */
+
+.ona-taptap-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.ona-taptap-heading > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ona-taptap-heading strong,
+.ona-taptap-heading h3 {
+  font-size: 12px;
+  margin: 0;
+}
+
+.ona-taptap-heading small {
+  display: none;
+}
+
+.ona-taptap-heading label {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* People and gestures */
+
+.ona-taptap-person {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 5px 0;
+  border-top: 1px solid #ece5dc;
+  font-size: 11px;
+}
+
+.ona-taptap-person > div {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.ona-taptap-person button {
+  padding: 4px 7px;
+  border-radius: 9px;
+  background: #edf2ea;
+  color: #264d3b;
+  border: 1px solid #d7e1d4;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.ona-taptap-person button:hover {
+  background: #dce9d9;
+}
+
+/* Less unnecessary text */
+
+.ona-taptap-hint {
+  display: none;
+}
+
+/* Tap received notification */
+
+.ona-taptap-toast {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 9999;
+  width: min(280px, calc(100vw - 24px));
+  padding: 10px 12px;
+  border-radius: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: #244632;
+  background: #fffaf1;
+  border: 1px solid #dfd5c6;
+  box-shadow: 0 8px 26px #171e1930;
+  animation: tapIn 0.25s ease-out;
+}
+
+.ona-taptap-toast > span {
+  font-size: 22px;
+}
+
+.ona-taptap-toast > div {
+  flex: 1;
+  display: grid;
+  gap: 4px;
+}
+
+.ona-taptap-toast small {
+  color: #637369;
+  font-size: 11px;
+}
+
+.ona-taptap-toast button {
+  padding: 5px 8px;
+  border-radius: 9px;
+  background: #edf2ea;
+  color: #264d3b;
+  border: 1px solid #d7e1d4;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.ona-taptap-toast > button {
+  background: transparent;
+  border: 0;
+  font-size: 18px;
+  padding: 0 4px;
+}
+
+@keyframes tapIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Phone layout */
+
+@media (max-width: 650px) {
+  .ona-taptap {
+    padding: 7px 8px;
+    margin: 4px 0;
+  }
+
+  .ona-taptap-person {
+    gap: 4px;
+  }
+
+  .ona-taptap-person button {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+
+  .ona-taptap-toast {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ona-taptap-toast {
+    animation: none;
+  }
+}

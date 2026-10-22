@@ -1,0 +1,2957 @@
+:root {
+  --bg: #f8f2ea;
+  --bg-soft: #fffaf5;
+  --card: rgba(255, 250, 245, 0.9);
+  --text: #1f382d;
+  --muted: #5f675f;
+  --green: #264d3b;
+  --green-soft: #dbe7dc;
+  --terracotta: #c96b4b;
+  --terracotta-soft: #f2d2c4;
+  --border: rgba(38, 77, 59, 0.1);
+  --shadow: 0 16px 40px rgba(60, 38, 20, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: linear-gradient(180deg, #fbf6f0 0%, #f7efe6 100%);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.navbar {
+  width: min(1200px, calc(100% - 32px));
+  margin: 18px auto 0;
+  padding: 18px 24px;
+  background: rgba(255, 251, 247, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: sticky;
+  top: 14px;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--terracotta-soft);
+  color: var(--terracotta);
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  color: #485449;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--green);
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 22px;
+  border-radius: 999px;
+  transition: 0.2s ease;
+  font-weight: 600;
+}
+
+.primary-btn {
+  background: var(--green);
+  color: white;
+  box-shadow: 0 10px 22px rgba(38, 77, 59, 0.18);
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: white;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+main {
+  width: min(1200px, calc(100% - 32px));
+  margin: 32px auto 60px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 28px 0 10px;
+}
+
+.hero-text h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  line-height: 0.98;
+  margin: 10px 0 18px;
+  letter-spacing: -0.03em;
+}
+
+.hero-text h1 span {
+  color: var(--terracotta);
+}
+
+.eyebrow {
+  letter-spacing: 0.22em;
+  font-size: 0.8rem;
+  color: #7d7a74;
+  font-weight: 700;
+}
+
+.hero-description {
+  max-width: 560px;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.hero-actions {
+  margin-top: 28px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-community {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+}
+
+.avatar-row {
+  display: flex;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #edc9ba, #d9e5d7);
+  border: 3px solid #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--green);
+  margin-right: -10px;
+  box-shadow: var(--shadow);
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-room {
+  min-height: 560px;
+  border-radius: 36px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow);
+  background:
+    linear-gradient(to top, rgba(52, 28, 14, 0.55), rgba(52, 28, 14, 0.08)),
+    linear-gradient(135deg, #efd4c0 0%, #d98f66 38%, #7e5d4a 100%);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-room::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 245, 220, 0.35), transparent 30%),
+    radial-gradient(circle at 80% 15%, rgba(255, 210, 170, 0.35), transparent 28%),
+    radial-gradient(circle at 50% 85%, rgba(53, 91, 70, 0.2), transparent 30%);
+}
+
+.room-note {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  max-width: 180px;
+  font-family: "Brush Script MT", cursive;
+  font-size: 2rem;
+  line-height: 1.05;
+  color: rgba(81, 34, 16, 0.8);
+  text-align: right;
+}
+
+.tv-screen {
+  width: min(100%, 520px);
+  height: 280px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(34, 24, 17, 0.1), rgba(34, 24, 17, 0.55)),
+    linear-gradient(135deg, #f7b57d, #d97d5d 45%, #6f4f58 100%);
+  border: 10px solid #2d241d;
+  box-shadow: 0 24px 40px rgba(30, 18, 10, 0.28);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tv-glow {
+  text-align: center;
+  color: white;
+}
+
+.tv-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.tv-subtitle {
+  opacity: 0.9;
+}
+
+.coffee-table {
+  position: absolute;
+  bottom: 42px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 310px;
+  height: 70px;
+  background: rgba(117, 72, 44, 0.62);
+  border-radius: 999px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.cup,
+.popcorn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 250, 242, 0.9);
+}
+
+.popcorn {
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(180deg, #fff3d8, #f0d6a8);
+}
+
+.floating-user {
+  width: 155px;
+  height: 115px;
+  border-radius: 22px;
+  position: absolute;
+  z-index: 3;
+  box-shadow: 0 14px 26px rgba(40, 22, 12, 0.22);
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.78);
+  background:
+    linear-gradient(to top, rgba(27, 19, 14, 0.45), rgba(27, 19, 14, 0.05)),
+    linear-gradient(135deg, #f0b39a, #c3755f 52%, #6b4d50);
+}
+
+.floating-user::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 235, 220, 0.55), transparent 18%),
+    radial-gradient(circle at 50% 56%, rgba(80, 50, 35, 0.42), transparent 30%),
+    radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.16), transparent 20%);
+}
+
+.floating-user-name {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: rgba(34, 25, 20, 0.65);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  z-index: 2;
+}
+
+.top-left {
+  top: 72px;
+  left: 26px;
+}
+
+.top-right {
+  top: 92px;
+  right: 24px;
+}
+
+.bottom-left {
+  bottom: 126px;
+  left: 40px;
+}
+
+.bottom-right {
+  bottom: 150px;
+  right: 28px;
+}
+
+.features-section,
+.rooms-section {
+  margin-top: 70px;
+}
+
+.section-heading {
+  margin-bottom: 26px;
+}
+
+.section-heading h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 10px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.feature-card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 26px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.feature-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #f8ddcf, #f1eee8);
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.row-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.browse-link {
+  color: var(--green);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.room-card {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: 320px;
+}
+
+.room-image {
+  height: 100%;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.room-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background: linear-gradient(to top, rgba(24, 19, 15, 0.85), rgba(24, 19, 15, 0.05));
+  color: white;
+}
+
+.room-overlay h3 {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  font-size: 0.78rem;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+}
+
+.footer {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto 28px;
+  padding: 26px 24px;
+  border-top: 1px solid rgba(38, 77, 59, 0.08);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+}
+
+.footer h3 {
+  margin: 0 0 8px;
+  color: var(--green);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rooms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-room {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 820px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .row-heading,
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .features-grid,
+  .rooms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-room {
+    min-height: 500px;
+  }
+
+  .floating-user {
+    width: 120px;
+    height: 92px;
+  }
+
+  .room-note {
+    font-size: 1.5rem;
+    max-width: 130px;
+  }
+
+  .tv-screen {
+    height: 220px;
+  }
+}
+
+@media (max-width: 540px) {
+  main {
+    margin-top: 24px;
+  }
+
+  .navbar {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .brand {
+    font-size: 1.45rem;
+  }
+
+  .hero-room {
+    min-height: 460px;
+    padding: 16px;
+  }
+
+  .floating-user {
+    width: 94px;
+    height: 76px;
+    border-radius: 16px;
+  }
+
+  .floating-user-name {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+
+  .tv-screen {
+    height: 185px;
+    border-width: 7px;
+  }
+  
+  .floating-user {
+  width: 155px;
+  height: 115px;
+  border-radius: 22px;
+  position: absolute;
+  z-index: 3;
+  box-shadow: 0 14px 26px rgba(40, 22, 12, 0.22);
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.78);
+  background: #ddd;
+}
+
+.floating-user-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.floating-user::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 15, 12, 0.55),
+    rgba(20, 15, 12, 0.05)
+  );
+  pointer-events: none;
+}
+
+.floating-user-name {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: rgba(34, 25, 20, 0.65);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  z-index: 2;
+}
+
+.tv-screen {
+  width: min(100%, 520px);
+  height: 280px;
+  border-radius: 24px;
+  border: 10px solid #2d241d;
+  box-shadow: 0 24px 40px rgba(30, 18, 10, 0.28);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  background: #1f1a17;
+}
+
+.tv-shared-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tv-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 20px;
+  background: linear-gradient(
+    to top,
+    rgba(18, 12, 8, 0.75),
+    rgba(18, 12, 8, 0.08)
+  );
+  color: white;
+}
+
+.tv-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.tv-subtitle {
+  opacity: 0.92;
+}
+  .coffee-table {
+    width: 240px;
+    height: 58px;
+  }
+
+  .cup {
+    width: 34px;
+    height: 34px;
+  }
+
+  .popcorn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .hero-community {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* ====================================
+   ONAHEYA — RESPONSIVE ONE-SCREEN HOME
+==================================== */
+
+html {
+  min-width: 320px;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+.app.landing-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Desktop landing page */
+@media (min-width: 1101px) and (min-height: 650px) {
+
+  .landing-page .navbar {
+    flex-shrink: 0;
+    margin-top: 10px;
+    padding: 11px 22px;
+  }
+
+  .landing-page main {
+    flex: 1;
+    width: min(1400px, calc(100% - 40px));
+    margin: 12px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 14px;
+  }
+
+  .landing-page .hero {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .landing-page .hero-text h1 {
+    font-size: clamp(2.4rem, 4vw, 4.1rem);
+    margin: 8px 0;
+  }
+
+  .landing-page .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .landing-page .hero-actions {
+    margin-top: 14px;
+  }
+
+  .landing-page .hero-community {
+    margin-top: 14px;
+  }
+
+  .landing-page .hero-room {
+    min-height: 0;
+    height: clamp(230px, 37vh, 440px);
+  }
+
+  .landing-page .tv-screen {
+    height: 48%;
+    max-height: 230px;
+  }
+
+  .landing-page .floating-user {
+    width: 105px;
+    height: 75px;
+  }
+
+  .landing-page .coffee-table {
+    bottom: 14px;
+    height: 44px;
+  }
+
+  .landing-page .features-section,
+  .landing-page .rooms-section {
+    margin-top: 0;
+  }
+
+  .landing-page .section-heading {
+    margin-bottom: 9px;
+  }
+
+  .landing-page .section-heading h2 {
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+  }
+
+  .landing-page .section-heading p {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .landing-page .feature-card {
+    padding: 10px 14px;
+    border-radius: 15px;
+  }
+
+  .landing-page .feature-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    border-radius: 9px;
+    margin-bottom: 5px;
+  }
+
+  .landing-page .feature-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+  }
+
+  .landing-page .feature-card p {
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .landing-page .rooms-grid {
+    gap: 12px;
+  }
+
+  .landing-page .room-card,
+  .landing-page .room-image {
+    min-height: 0;
+    height: clamp(76px, 12vh, 125px);
+  }
+
+  .landing-page .room-overlay {
+    padding: 10px;
+  }
+
+  .landing-page .room-overlay h3 {
+    font-size: 0.94rem;
+    margin-bottom: 4px;
+  }
+
+  .landing-page .tags span {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+
+  .landing-page .footer {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    margin-bottom: 5px;
+    font-size: 0.75rem;
+  }
+
+  .landing-page .footer h3 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+}
+
+/* Smaller laptops */
+@media (min-width: 1101px) and (max-height: 800px) {
+
+  .landing-page .hero-room {
+    height: 28vh;
+    min-height: 170px;
+  }
+
+  .landing-page .hero-community {
+    display: none;
+  }
+
+  .landing-page .section-heading p {
+    display: none;
+  }
+
+  .landing-page .room-card,
+  .landing-page .room-image {
+    height: 75px;
+  }
+
+  .landing-page .feature-card p {
+    display: none;
+  }
+}
+
+/* Tablets and mobile devices */
+@media (max-width: 1100px) {
+
+  .landing-page .navbar {
+    margin-top: 8px;
+  }
+
+  .landing-page main {
+    flex: 1;
+    margin-top: 18px;
+  }
+
+  .landing-page .hero {
+    gap: 16px;
+  }
+
+  .landing-page .hero-room {
+    min-height: 280px;
+  }
+
+  .landing-page .features-section,
+  .landing-page .rooms-section {
+    margin-top: 30px;
+  }
+
+  .landing-page .room-card,
+  .landing-page .room-image {
+    min-height: 180px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+
+  .landing-page .navbar {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .landing-page .brand {
+    font-size: 1.25rem;
+  }
+
+  .landing-page .nav-links {
+    gap: 10px;
+    font-size: 0.76rem;
+  }
+
+  .landing-page .hero-text h1 {
+    font-size: clamp(2.2rem, 9vw, 3.4rem);
+  }
+
+  .landing-page .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .landing-page .hero-room {
+    min-height: 270px;
+  }
+
+  .landing-page .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .landing-page .feature-card {
+    padding: 14px;
+  }
+
+  .landing-page .feature-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .landing-page .feature-card p {
+    font-size: 0.79rem;
+  }
+
+  .landing-page .rooms-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding-bottom: 10px;
+  }
+
+  .landing-page .room-card {
+    flex: 0 0 70%;
+    scroll-snap-align: start;
+  }
+
+  .landing-page .footer {
+    padding: 18px 0;
+  }
+}
+
+/* ONAHEYA: single-screen navigation */
+
+/* All screens share one viewport */
+.app.landing-page {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-page .navbar {
+  position: relative;
+  top: auto;
+  flex: 0 0 auto;
+  margin: 8px auto 0;
+  padding: 10px 20px;
+}
+
+.brand-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-tab {
+  padding: 7px 3px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nav-tab.selected,
+.nav-tab:hover {
+  color: var(--terracotta);
+}
+
+.landing-page .screen-main {
+  width: min(1200px, calc(100% - 32px));
+  flex: 1 1 0;
+  min-height: 0;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.screen-panel {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  animation: screenReveal 0.3s ease-out;
+}
+
+@keyframes screenReveal {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HOME */
+.landing-page .hero {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.landing-page .hero-text h1 {
+  font-size: clamp(2rem, 4.5vw, 4.8rem);
+}
+
+.landing-page .hero-visual {
+  height: min(100%, 540px);
+  min-height: 0;
+}
+
+.landing-page .hero-room {
+  height: 100%;
+  min-height: 0;
+}
+
+.landing-page .tv-screen {
+  height: 45%;
+  min-height: 100px;
+}
+
+/* FEATURES */
+.landing-page .features-section,
+.landing-page .rooms-section {
+  margin-top: 0;
+  padding: clamp(12px, 3vh, 30px) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.landing-page .section-heading {
+  margin-bottom: 0;
+}
+
+.landing-page .section-heading h2 {
+  font-size: clamp(1.5rem, 3vw, 2.7rem);
+}
+
+.landing-page .features-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.landing-page .feature-card {
+  padding: clamp(12px, 2vw, 22px);
+}
+
+.landing-page .page-action {
+  align-self: flex-start;
+}
+
+/* ROOMS */
+.landing-page .rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.landing-page .room-card,
+.landing-page .room-image {
+  min-height: 0;
+  height: clamp(140px, 35vh, 330px);
+}
+
+.landing-page .room-hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* ABOUT */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 32px;
+}
+
+.about-content h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+}
+
+.about-content h2 span {
+  color: var(--terracotta);
+}
+
+.about-content p {
+  max-width: 520px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.about-visual {
+  height: min(70vh, 450px);
+  border-radius: 30px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 75% 25%, #f5cb95, transparent 45%),
+    linear-gradient(140deg, #e8d9bd, #d58f70, #63816b);
+  box-shadow: var(--shadow);
+}
+
+.about-quote {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 3.2rem);
+  color: #fffaf5;
+  text-shadow: 0 4px 16px #543b3b77;
+}
+
+/* FOOTER */
+.landing-page .footer {
+  flex: 0 0 auto;
+  padding: 8px 0;
+  margin: 0 auto 5px;
+  font-size: 0.75rem;
+}
+
+.landing-page .footer h3 {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.footer-links button {
+  background: transparent;
+  color: var(--muted);
+  font-size: inherit;
+}
+
+.footer-links button:hover {
+  color: var(--terracotta);
+}
+
+/* TABLETS */
+@media (max-width: 900px) {
+  .landing-page .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .landing-page .rooms-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow-y: auto;
+    min-height: 0;
+  }
+
+  .landing-page .room-card,
+  .landing-page .room-image {
+    height: 150px;
+  }
+}
+
+/* PHONES */
+@media (max-width: 700px) {
+  .landing-page .navbar {
+    padding: 8px 12px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .landing-page .nav-links {
+    display: none;
+  }
+
+  .landing-page .screen-main {
+    width: calc(100% - 24px);
+  }
+
+  .landing-page .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 10px;
+    padding: 8px 0;
+  }
+
+  .landing-page .hero-text h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin: 7px 0;
+  }
+
+  .landing-page .hero-description {
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+
+  .landing-page .hero-actions {
+    margin-top: 10px;
+  }
+
+  .landing-page .hero-community {
+    display: none;
+  }
+
+  .landing-page .hero-visual {
+    height: 100%;
+    max-height: none;
+    min-height: 0;
+  }
+
+  .landing-page .hero-room {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .landing-page .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .landing-page .feature-card {
+    padding: 12px;
+  }
+
+  .landing-page .feature-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 6px;
+  }
+
+  .landing-page .feature-card p {
+    font-size: 0.78rem;
+    line-height: 1.3;
+  }
+
+  .landing-page .rooms-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+  }
+
+  .landing-page .room-card {
+    flex: 0 0 72%;
+    scroll-snap-align: start;
+  }
+
+  .landing-page .room-card,
+  .landing-page .room-image {
+    height: min(45vh, 270px);
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .about-content h2 {
+    margin: 8px 0;
+  }
+
+  .about-visual {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .landing-page .footer-links {
+    display: none;
+  }
+}
+
+/* EXTRA-SHORT SCREENS */
+@media (max-height: 650px) {
+  .landing-page .hero-community,
+  .landing-page .room-note {
+    display: none;
+  }
+
+  .landing-page .hero-description {
+    font-size: 0.78rem;
+  }
+
+  .landing-page .features-section,
+  .landing-page .rooms-section {
+    gap: 8px;
+    padding: 6px 0;
+  }
+
+  .landing-page .feature-card p {
+    font-size: 0.72rem;
+  }
+
+  .landing-page .footer {
+    padding: 3px 0;
+  }
+}
+
+/* ONAHEYA mobile navigation */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+}
+
+.mobile-dropdown {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .landing-page .navbar {
+    z-index: 100;
+  }
+
+  .desktop-cta {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #dce5da;
+    border-radius: 14px;
+    background: #e8eee5;
+    color: #35563d;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+
+  .mobile-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background: #fffaf3;
+    border: 1px solid #e6ded2;
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(35, 50, 35, 0.15);
+    max-height: calc(100dvh - 110px);
+    overflow-y: auto;
+  }
+
+  .mobile-dropdown button {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 15px;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    color: #35563d;
+    font-size: 0.96rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .mobile-dropdown button span {
+    font-size: 1.2rem;
+    width: 25px;
+  }
+
+  .mobile-dropdown button:hover,
+  .mobile-dropdown button.active {
+    background: #e8eee5;
+  }
+
+  .mobile-dropdown .mobile-dropdown-cta {
+    justify-content: center;
+    margin-top: 8px;
+    background: #35563d;
+    color: white;
+    border-radius: 999px;
+  }
+}
+
+/* Keyboard and TV remote-friendly focus indicator */
+
+.nav-tab:focus-visible,
+.mobile-menu-toggle:focus-visible,
+.mobile-dropdown button:focus-visible,
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible {
+  outline: 3px solid #c95f39;
+  outline-offset: 4px;
+}
+
+/* ONAHEYA — Fix city participant image cropping */
+
+.floating-user {
+  overflow: hidden;
+  position: absolute;
+  isolation: isolate;
+}
+
+.floating-user-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Position each person's face individually */
+
+.floating-user.top-left .floating-user-image {
+  object-position: 55% 35%;
+}
+
+.floating-user.top-right .floating-user-image {
+  object-position: 55% 35%;
+}
+
+.floating-user.bottom-left .floating-user-image {
+  object-position: 48% 35%;
+}
+
+.floating-user.bottom-right .floating-user-image {
+  object-position: 60% 35%;
+}
+
+/* Keep the city labels on top of the photos */
+
+.floating-user-name {
+  position: absolute;
+  z-index: 5;
+  bottom: 8px;
+  left: 8px;
+}
+
+/* Don't let the overlay obscure the portraits */
+
+.floating-user::after {
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ONAHEYA — Cinematic Features */
+
+.landing-page .vibrant-features {
+  --feature-gap: clamp(8px, 1.4vw, 18px);
+  gap: clamp(8px, 1.5vh, 16px);
+  padding: 8px 0;
+  min-height: 0;
+}
+
+.feature-heading {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.feature-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.35rem, 3vw, 2.65rem);
+  letter-spacing: -0.035em;
+  margin: 4px 0;
+  line-height: 1.1;
+}
+
+.feature-heading h2 em {
+  color: var(--terracotta);
+  font-weight: normal;
+}
+
+.feature-heading > p:last-child {
+  color: var(--muted);
+  margin: 4px 0;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+}
+
+.vibrant-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--feature-gap);
+  min-height: 0;
+}
+
+.vibrant-card {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 23px;
+  background: #fff4e9;
+  box-shadow: 0 12px 28px rgba(64, 37, 24, 0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.vibrant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(64, 37, 24, 0.2);
+}
+
+.feature-photo {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 90px;
+  height: clamp(110px, 26vh, 270px);
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.feature-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 22, 18, 0.06),
+    rgba(15, 22, 18, 0.42)
+  );
+  z-index: -1;
+}
+
+.vibrant-card-1 .feature-photo {
+  background-image: url("/images/shared-room.jpg");
+}
+
+.vibrant-card-2 .feature-photo {
+  background-image:
+    linear-gradient(135deg, #253f3699, #63816b55),
+    url("/images/tokyo.jpg");
+}
+
+.vibrant-card-3 .feature-photo {
+  background-image:
+    linear-gradient(135deg, #a26a5377, #293d3955),
+    url("/images/shared-room.jpg");
+}
+
+.vibrant-card-4 .feature-photo {
+  background-image:
+    linear-gradient(135deg, #b7745c55, #4b473b55),
+    url("/images/london.jpg");
+}
+
+.feature-symbol {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff5e9;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 14px #0002;
+  z-index: 2;
+}
+
+.feature-demo {
+  color: white;
+  z-index: 1;
+}
+
+.watching-demo {
+  background: #17231bc9;
+  border: 1px solid #ffffff77;
+  border-radius: 15px;
+  width: 72%;
+  height: 66%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.demo-live {
+  font-size: 0.65rem;
+  color: #bce1be;
+}
+
+.demo-film {
+  font-size: 2rem;
+}
+
+.demo-avatars {
+  font-size: 0.9rem;
+}
+
+.demo-progress {
+  height: 3px;
+  background: #ffffff66;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.demo-progress span {
+  display: block;
+  width: 60%;
+  height: 100%;
+  background: #f2a080;
+}
+
+.chat-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 76%;
+}
+
+.chat-demo div {
+  background: #fff8ed;
+  color: #35563d;
+  padding: 9px 11px;
+  border-radius: 15px;
+  font-size: clamp(0.65rem, 1vw, 0.84rem);
+  box-shadow: 0 4px 10px #0002;
+}
+
+.chat-demo div:nth-child(2) {
+  align-self: flex-end;
+  background: #dbe8d9;
+}
+
+.devices-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-shadow: 0 4px 12px #0008;
+}
+
+.devices-demo span {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+.devices-demo small,
+.moods-demo small {
+  width: 100%;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.moods-demo {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+}
+
+.moods-demo span {
+  background: #fff9eddd;
+  padding: 12px;
+  border-radius: 15px;
+  font-size: 1.3rem;
+}
+
+.feature-details {
+  position: relative;
+  padding: clamp(12px, 1.5vw, 20px);
+  flex: 0 0 auto;
+  min-height: 94px;
+}
+
+.vibrant-card-1 .feature-details { background: #ffe6d6; }
+.vibrant-card-2 .feature-details { background: #e7eddc; }
+.vibrant-card-3 .feature-details { background: #e8def1; }
+.vibrant-card-4 .feature-details { background: #fae5d1; }
+
+.feature-details h3 {
+  font-family: Georgia, serif;
+  margin: 0 0 6px;
+  font-size: clamp(0.95rem, 1.5vw, 1.3rem);
+}
+
+.feature-details p {
+  margin: 0;
+  font-size: clamp(0.7rem, 0.9vw, 0.86rem);
+  line-height: 1.35;
+  color: #4c5149;
+  padding-right: 18px;
+}
+
+.feature-arrow {
+  position: absolute;
+  right: 11px;
+  bottom: 11px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-size: 1.1rem;
+}
+
+.features-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.feature-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: var(--green);
+  font-size: 0.78rem;
+}
+
+/* Small laptops */
+@media (min-width: 901px) and (max-height: 720px) {
+  .feature-photo {
+    height: 22vh;
+  }
+
+  .feature-details {
+    padding: 9px;
+    min-height: 76px;
+  }
+
+  .feature-details p {
+    font-size: 0.69rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 701px) and (max-width: 900px) {
+  .vibrant-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex: 1;
+  }
+
+  .feature-photo {
+    height: 16vh;
+  }
+}
+
+/* Phones: swipe between visual feature cards */
+@media (max-width: 700px) {
+  .vibrant-feature-grid {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding: 8px 3px 14px;
+  }
+
+  .vibrant-card {
+    flex: 0 0 82%;
+    height: 100%;
+    scroll-snap-align: center;
+  }
+
+  .feature-photo {
+    flex: 1 1 auto;
+    height: auto;
+  }
+
+  .feature-details {
+    min-height: 100px;
+  }
+
+  .feature-heading h2 {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  .feature-benefits {
+    display: none;
+  }
+
+  .features-bottom {
+    justify-content: center;
+  }
+}
+
+/* ONAHEYA — MY ROOMS */
+
+.my-rooms-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  padding: 16px 0;
+}
+
+.my-rooms-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  margin: 8px 0;
+  color: var(--green);
+}
+
+.my-rooms-heading p:last-child {
+  color: var(--muted);
+}
+
+.my-rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  min-height: 0;
+}
+
+.my-room-tile {
+  min-width: 0;
+  min-height: 230px;
+  border-radius: 26px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.create-room-tile {
+  background-image:
+    linear-gradient(0deg, #20392fe8, #20392f33),
+    url("/images/shared-room.jpg");
+}
+
+.join-room-tile {
+  background-image:
+    linear-gradient(0deg, #6c4237ee, #6c423733),
+    url("/images/tokyo.jpg");
+}
+
+.saved-room-tile {
+  background-image:
+    linear-gradient(0deg, #394638ee, #39463833),
+    url("/images/london.jpg");
+}
+
+.my-room-icon {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #fff8edde;
+  color: #35563d;
+  font-size: 1.6rem;
+}
+
+.my-room-tile h3 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  margin: 0 0 10px;
+}
+
+.my-room-tile p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.my-room-label {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 700px) {
+  .my-rooms-section {
+    gap: 12px;
+    padding: 10px 0;
+  }
+
+  .my-rooms-heading h2 {
+    font-size: 2rem;
+  }
+
+  .my-rooms-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    min-height: 0;
+    flex: 1;
+  }
+
+  .my-room-tile {
+    flex: 0 0 82%;
+    min-height: 0;
+    height: 100%;
+    scroll-snap-align: center;
+    padding: 18px;
+  }
+}
+
+/* ONAHEYA cinematic About visual */
+
+.about-cinematic {
+  position: relative;
+  height: min(70vh, 480px);
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 30px;
+  isolation: isolate;
+  display: block;
+  background: #48362d;
+}
+
+.about-image-background {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 26, 22, 0.25),
+      rgba(30, 22, 16, 0.65)
+    ),
+    url("/images/shared-room.jpg") center / cover;
+  z-index: -1;
+  transform: scale(1.03);
+}
+
+.about-scene-heading {
+  position: absolute;
+  top: 6%;
+  left: 0;
+  right: 0;
+  color: white;
+  text-align: center;
+  text-shadow: 0 3px 14px #0009;
+}
+
+.about-scene-heading > span {
+  font-size: clamp(0.65rem, 1vw, 0.85rem);
+  letter-spacing: 0.06em;
+}
+
+.about-scene-heading h3 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: clamp(1.2rem, 2.2vw, 2.3rem);
+  line-height: 1.05;
+  margin: 8px 0;
+}
+
+.about-scene-heading em {
+  color: #ffc4a9;
+}
+
+.about-participants {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-person {
+  position: absolute;
+  width: 29%;
+  height: 25%;
+  border: 2px solid #fff8e5cc;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 9px 24px #0006;
+  background: #564b44;
+}
+
+.about-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
+.about-person span {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  border-radius: 20px;
+  padding: 4px 7px;
+  background: #1b201bdc;
+  color: white;
+  font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.about-person i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #55d879;
+}
+
+.about-top-left {
+  top: 29%;
+  left: 4%;
+  transform: rotate(-5deg);
+}
+
+.about-top-right {
+  top: 29%;
+  right: 4%;
+  transform: rotate(5deg);
+}
+
+.about-bottom-left {
+  bottom: 18%;
+  left: 9%;
+  transform: rotate(4deg);
+}
+
+.about-bottom-right {
+  bottom: 18%;
+  right: 9%;
+  transform: rotate(-4deg);
+}
+
+.about-connected {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff9edeb;
+  color: #284737;
+  border: 1px solid #ffffffb3;
+  border-radius: 16px;
+  padding: 9px 16px;
+  box-shadow: 0 8px 24px #0003;
+}
+
+.connected-pulse {
+  width: 10px;
+  height: 10px;
+  background: #45b66d;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #45b66d33;
+}
+
+.about-connected div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.about-connected strong {
+  font-size: 0.78rem;
+}
+
+.about-connected small {
+  font-size: 0.65rem;
+  color: #647465;
+}
+
+@media (max-width: 700px) {
+  .about-cinematic {
+    height: 100%;
+    min-height: 0;
+    border-radius: 20px;
+  }
+
+  .about-person {
+    width: 30%;
+    height: 26%;
+  }
+
+  .about-scene-heading h3 {
+    font-size: clamp(1.15rem, 5vw, 1.7rem);
+  }
+
+  .about-connected {
+    padding: 6px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image-background {
+    transform: none;
+  }
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.brand-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.brand-mark {
+  display: none;
+}
+.onaheya-navbar-logo {
+  display: block;
+  width: 175px;
+  height: 48px;
+  object-fit: contain;
+}
+
+@media (max-width: 700px) {
+  .onaheya-navbar-logo {
+    width: 135px;
+    height: 40px;
+  }
+}
+
+/* ONAHEYA — Room creation */
+
+.my-room-tile:is(button) {
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  transition: transform 0.2s ease;
+}
+
+.my-room-tile:is(button):hover {
+  transform: translateY(-5px);
+}
+
+.my-room-tile:is(button):focus-visible {
+  outline: 3px solid #c96b4b;
+  outline-offset: 4px;
+}
+
+.room-form-screen,
+.saved-rooms-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding: 15px 0;
+  min-height: 0;
+}
+
+.room-form-intro h2,
+.saved-rooms-screen h2 {
+  font-family: Georgia, serif;
+  color: #264d3b;
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
+  margin: 8px 0;
+}
+
+.room-form-intro p {
+  color: #647465;
+}
+
+.room-creation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(100%, 520px);
+  padding: 24px;
+  border-radius: 24px;
+  background: #fffaf3;
+  border: 1px solid #e9dfd2;
+  box-shadow: 0 14px 35px #49352613;
+}
+
+.room-creation-form label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #264d3b;
+}
+
+.room-creation-form input,
+.room-creation-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d8dfd5;
+  border-radius: 12px;
+  background: white;
+  color: #264d3b;
+  font: inherit;
+}
+
+.room-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.saved-room-list {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 10px 2px;
+}
+
+.saved-room-card {
+  flex: 0 0 min(260px, 85%);
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff8ec;
+  box-shadow: 0 8px 24px #49352615;
+}
+
+.saved-room-card h3 {
+  margin: 0;
+  color: #264d3b;
+}
+
+.saved-room-card p {
+  color: #647465;
+}
+
+@media (max-width: 700px) {
+  .room-form-screen,
+  .saved-rooms-screen {
+    gap: 8px;
+    overflow-y: auto;
+  }
+
+  .room-creation-form {
+    padding: 14px;
+    gap: 7px;
+  }
+}
+
+/* ==========================================
+   ONAHEYA — JOIN WITH A CODE
+========================================== */
+
+.join-room-screen {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px 18px;
+  overflow-y: auto;
+}
+
+.join-room-intro {
+  text-align: center;
+}
+
+.join-room-intro h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  color: #284936;
+  line-height: 1.1;
+  margin: 7px 0;
+}
+
+.join-room-intro > p:last-child {
+  font-size: 0.86rem;
+  color: #777567;
+}
+
+.join-room-layout {
+  width: 100%;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* CODE ENTRY PANEL */
+
+.join-room-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  padding: 28px;
+  border-radius: 26px;
+  border: 1px solid #fff;
+  background:
+    radial-gradient(
+      circle at top right,
+      #f9e1cd,
+      transparent 40%
+    ),
+    linear-gradient(135deg, #fffaf1, #f5e9d9);
+
+  box-shadow: 0 20px 50px #4f3b271c;
+}
+
+.join-room-symbol {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  background: #e6ede4;
+  color: #284936;
+  font-size: 2rem;
+}
+
+.join-room-panel h3 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 1.75rem;
+  color: #284936;
+}
+
+.join-room-helper {
+  max-width: 30ch;
+  color: #777567;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.join-room-form {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.join-room-form label {
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  font-weight: 800;
+  color: #55705a;
+}
+
+.join-room-form input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid #d8d8cb;
+  border-radius: 16px;
+  background: #fffefa;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #284936;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+.join-room-form input::placeholder {
+  color: #c0c7b8;
+}
+
+.join-room-form input:focus {
+  outline: none;
+  border-color: #c96b4b;
+  box-shadow: 0 0 0 4px #c96b4b23;
+}
+
+.join-error {
+  color: #ae4839;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.join-submit {
+  width: 100%;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 13px 18px;
+}
+
+.join-back-link {
+  margin-top: 10px;
+  border: 0;
+  background: none;
+  color: #55705a;
+  font-size: 0.83rem;
+  cursor: pointer;
+}
+
+.join-back-link:hover {
+  text-decoration: underline;
+}
+
+/* CINEMATIC RIGHT PANEL */
+
+.join-room-visual {
+  position: relative;
+  min-height: 360px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 26px;
+  color: #fffaf0;
+  overflow: hidden;
+  background:
+    linear-gradient(155deg, #365c46df, #16362fd9),
+    url("/images/shared-room.jpg")
+      center / cover no-repeat;
+
+  box-shadow: 0 20px 50px #293f312e;
+}
+
+.join-visual-heading {
+  position: relative;
+  z-index: 2;
+}
+
+.join-visual-heading > span {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.join-visual-heading h3 {
+  margin: 12px 0 0;
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+  line-height: 1.12;
+}
+
+.join-friends-scene {
+  position: relative;
+  height: 170px;
+  margin: 14px 0;
+}
+
+.join-friend {
+  position: absolute;
+  width: 88px;
+  height: 70px;
+  overflow: hidden;
+  border: 2px solid #ffffffa6;
+  border-radius: 13px;
+  box-shadow: 0 8px 24px #0003;
+}
+
+.join-friend img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+}
+
+.join-friend span {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  padding: 3px 6px;
+  border-radius: 7px;
+  background: #16271fcc;
+  color: white;
+  font-size: 0.58rem;
+}
+
+.join-top-left {
+  left: 7%;
+  top: 0;
+}
+
+.join-top-right {
+  right: 7%;
+  top: 0;
+}
+
+.join-bottom-left {
+  left: 7%;
+  bottom: 0;
+}
+
+.join-bottom-right {
+  right: 7%;
+  bottom: 0;
+}
+
+.join-scene-heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: #ffddcb;
+  text-shadow: 0 0 30px #ffbba46c;
+}
+
+.join-visual-footer {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.83rem;
+}
+
+.join-visual-footer span {
+  font-size: 1.5rem;
+}
+
+/* FOUND ROOM */
+
+.join-room-found {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 15px;
+  height: 100%;
+}
+
+.join-found-label {
+  text-align: center;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.join-found-preview {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 210px;
+  padding: 20px;
+  border: 1px solid #ffffff55;
+  border-radius: 20px;
+}
+
+.join-found-preview.mood-cozy {
+  background: linear-gradient(130deg, #c39d70, #6c4c38);
+}
+
+.join-found-preview.mood-sunset {
+  background: linear-gradient(130deg, #e9ac73, #a25355);
+}
+
+.join-found-preview.mood-rainy {
+  background: linear-gradient(130deg, #859fb0, #344c67);
+}
+
+.join-found-preview.mood-late-night {
+  background: linear-gradient(130deg, #2d3c60, #111b32);
+}
+
+.join-found-preview.mood-romance {
+  background: linear-gradient(130deg, #dfa4ac, #8a536b);
+}
+
+.join-found-content {
+  position: relative;
+  z-index: 2;
+}
+
+.join-found-content h3 {
+  margin: 10px 0;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 1.6rem;
+}
+
+.join-found-content p {
+  color: white;
+  font-size: 0.85rem;
+}
+
+.join-found-badge {
+  display: inline-block;
+  background: #ffffff35;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+}
+
+/* JOINED ROOM CONFIRMATION */
+
+.join-success-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 0;
+  height: 100%;
+  padding: 18px;
+}
+
+.join-success-card {
+  width: min(100%, 540px);
+  padding: 36px;
+  text-align: center;
+  border-radius: 28px;
+  background: #fff9ef;
+  border: 1px solid #eadfcf;
+  box-shadow: 0 20px 50px #4f3b271c;
+}
+
+.join-success-heart {
+  color: #c96b4b;
+  font-size: 3rem;
+}
+
+.join-success-card h2 {
+  font-family: Georgia, serif;
+  color: #284936;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin: 10px 0;
+}
+
+.join-success-card > p {
+  color: #69786d;
+}
+
+.join-success-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.join-success-details span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #e8eee6;
+  color: #284936;
+  font-size: 0.8rem;
+}
+
+.join-success-note {
+  font-size: 0.82rem;
+  margin-bottom: 18px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .join-room-layout {
+    max-width: 560px;
+    grid-template-columns: 1fr;
+  }
+
+  .join-room-screen {
+    justify-content: flex-start;
+  }
+
+  .join-room-visual {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 700px) {
+  .join-room-screen {
+    padding: 12px 8px;
+  }
+
+  .join-room-panel {
+    padding: 20px;
+  }
+
+  .join-room-panel h3 {
+    font-size: 1.5rem;
+  }
+
+  .join-room-visual {
+    padding: 18px;
+  }
+
+  .join-success-card {
+    padding: 22px;
+  }
+}
+
+/* ============================================================
+   ONAHEYA: mobile layout repair — October 2026
+   Desktop styling and all room/social components stay intact.
+   ============================================================ */
+@media (max-width: 700px) {
+  html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+  .app.landing-page {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+  .landing-page .navbar {
+    width: calc(100% - 28px);
+    padding: 10px 14px;
+    margin: 10px auto 0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .landing-page .brand-button { flex: 0 1 auto; min-width: 0; }
+  .landing-page .onaheya-navbar-logo { width: clamp(124px, 38vw, 160px); height: 42px; object-fit: contain; }
+  .landing-page .nav-links { display: none; }
+  .landing-page .navbar-actions { margin-left: auto; flex: 0 0 auto; gap: 0; }
+  .landing-page .navbar-actions > .primary-btn,
+  .landing-page .navbar-actions > .secondary-btn { display: none; }
+  .landing-page .mobile-menu-toggle {
+    display: grid; place-items: center;
+    width: 44px; height: 44px; flex: 0 0 44px;
+  }
+  .landing-page .mobile-dropdown { z-index: 150; }
+  .landing-page .screen-main {
+    width: calc(100% - 32px);
+    flex: 1 0 auto;
+    min-height: 0;
+    overflow: visible;
+    margin: 16px auto 28px;
+    display: block;
+  }
+  .landing-page .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    padding: 8px 0 14px;
+    min-height: 0;
+  }
+  .landing-page .hero-text { min-width: 0; width: 100%; }
+  .landing-page .hero-text .eyebrow { font-size: .68rem; letter-spacing: .18em; }
+  .landing-page .hero-text h1 {
+    font-size: clamp(2.25rem, 10vw, 3.7rem);
+    line-height: 1.04;
+    overflow-wrap: normal;
+    margin: 12px 0 16px;
+  }
+  .landing-page .hero-description { font-size: .94rem; line-height: 1.55; }
+  .landing-page .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .landing-page .hero-actions > button { padding: 12px 18px; font-size: .89rem; max-width: 100%; }
+  .landing-page .hero-visual { width: 100%; height: auto; min-height: 0; max-height: none; }
+  .landing-page .hero-room {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1.08 / 1;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 12px;
+    border-radius: 26px;
+  }
+  .landing-page .hero-room .room-note { top: 12px; right: 14px; font-size: 1.1rem; max-width: 122px; z-index: 1; }
+  .landing-page .hero-room .floating-user {
+    width: 29%;
+    height: 25%;
+    max-width: 125px;
+    max-height: 94px;
+    border-width: 2px;
+    border-radius: 14px;
+    z-index: 4;
+  }
+  .landing-page .hero-room .floating-user.top-left { top: 13%; left: 5%; }
+  .landing-page .hero-room .floating-user.top-right { top: 12%; right: 5%; }
+  .landing-page .hero-room .floating-user.bottom-left { bottom: 16%; left: 5%; }
+  .landing-page .hero-room .floating-user.bottom-right { bottom: 16%; right: 5%; }
+  .landing-page .hero-room .floating-user-name { left: 5px; bottom: 5px; padding: 4px 6px; font-size: .63rem; }
+  .landing-page .hero-room .tv-screen {
+    width: 63%;
+    height: 43%;
+    min-height: 0;
+    border-width: 5px;
+    border-radius: 14px;
+    z-index: 2;
+  }
+  .landing-page .hero-room .tv-title { font-size: clamp(1rem, 4vw, 1.4rem); }
+  .landing-page .hero-room .tv-subtitle { font-size: .68rem; }
+  .landing-page .hero-room .tv-overlay { padding: 10px; }
+  .landing-page .hero-room .coffee-table { bottom: 4%; width: 46%; height: 8%; min-height: 26px; gap: 8px; }
+  .landing-page .hero-room .coffee-table .cup { width: 22px; height: 22px; }
+  .landing-page .hero-room .coffee-table .popcorn { width: 30px; height: 30px; }
+  .landing-page .footer { width: calc(100% - 32px); margin: 0 auto 14px; }
+}
+@media (max-width: 380px) {
+  .landing-page .hero-text h1 { font-size: clamp(2rem, 9.3vw, 2.6rem); }
+  .landing-page .hero-actions > button { padding: 11px 14px; font-size: .84rem; }
+}
+
+/* Connected navigation, scoped to new sections */
+.ona-connected-page{padding:clamp(16px,3vw,38px);overflow:auto;max-height:100%} .ona-connected-page h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem)}
+.ona-quick-links,.ona-feature-destinations{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:22px 0}.ona-quick-links button,.ona-read-link button,.ona-backlink{padding:12px 15px;border-radius:14px;background:#e6eee3;color:#264d3b}.ona-feature-link{display:flex;align-items:center;text-align:left;gap:12px;padding:15px;border-radius:17px;background:#fff9f0;border:1px solid #e3e5db;color:#264d3b}.ona-feature-link>span:nth-child(2){flex:1;display:grid;gap:5px}.ona-feature-link small{font-size:12px;color:#6b766d}.ona-feature-symbol{font-size:25px}.ona-read-link{border:1px solid #e5e7dc;border-radius:20px;padding:18px;margin-top:20px} .ona-read-link button{margin-right:8px}.ona-feature-link:focus-visible,.ona-quick-links button:focus-visible{outline:3px solid #c96b4b}
+@media(max-width:700px){.ona-connected-page{max-height:none;overflow:visible}.ona-feature-destinations{grid-template-columns:1fr}.ona-quick-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Connected Experience: back navigation and visual feature gallery */
+.ona-global-back{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin:0 0 9px;padding:9px 15px;border-radius:100px;border:1px solid #dfe6da;background:#fff9f1;color:#264d3b;font-size:13px;font-weight:650;position:relative;z-index:2}
+.ona-features-view{height:100%;overflow:auto;padding:clamp(20px,3vw,42px);background:#fffaf4;border-radius:28px;color:#244735}
+.ona-feature-intro h2{font:clamp(2.2rem,4vw,3.8rem)/1.05 Georgia,serif;letter-spacing:-.03em;margin:8px 0 14px}.ona-feature-intro em{color:#bd6b4f}.ona-feature-intro>p:last-child{color:#647567;line-height:1.6;max-width:610px}
+.ona-feature-gallery{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ona-feature-photo-card{position:relative;display:block;min-width:0;min-height:255px;aspect-ratio:1/1.07;border-radius:22px;overflow:hidden;text-align:left;color:#fff;background:#264d3b;padding:0;isolation:isolate}
+.ona-feature-photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .25s}
+.ona-feature-photo-card:hover img{transform:scale(1.045)}
+.ona-feature-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,30,24,.03) 6%,rgba(15,30,24,.94) 100%)}
+.ona-feature-card-copy{position:absolute;inset:auto 0 0;padding:18px;display:flex;flex-direction:column;gap:7px}.ona-feature-card-icon{font-size:23px}.ona-feature-card-copy strong{font:1.55rem Georgia,serif}.ona-feature-card-copy small{font-size:12px;line-height:1.5;color:#ecf1e9}.ona-feature-open{font-weight:750;font-size:12px;margin-top:8px;color:#ffe6c6}
+.ona-feature-footnote{font-size:12px;color:#687b6c;margin-top:20px;line-height:1.6}.ona-feature-photo-card:focus-visible,.ona-global-back:focus-visible{outline:3px solid #c96b4b;outline-offset:3px}
+@media(max-width:920px){.ona-feature-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.ona-features-view{height:auto;overflow:visible;padding:20px 14px}.ona-feature-gallery{gap:10px}.ona-feature-photo-card{min-height:195px;aspect-ratio:.79}.ona-feature-card-copy{padding:12px}.ona-feature-card-copy strong{font-size:1.15rem}.ona-feature-card-copy small{font-size:11px}.ona-feature-open{font-size:11px}.ona-global-back{margin:4px 0 11px}}
+@media(max-width:360px){.ona-feature-gallery{grid-template-columns:1fr}.ona-feature-photo-card{aspect-ratio:1.4;min-height:180px}}
+@media(prefers-reduced-motion:reduce){.ona-feature-photo-card img{transition:none}}
+
+
+/* ONAHEYA | Cinema-density pass, October 2026.
+   Compact cards and controls. Keeps existing brand colors, navigation and features. */
+@media (min-width: 701px) {
+ .ona-features-view{padding:clamp(14px,2vw,26px)}
+ .ona-feature-intro h2{font-size:clamp(1.65rem,2.4vw,2.55rem);margin:4px 0 9px}
+ .ona-feature-gallery{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+ .ona-feature-photo-card{min-height:0;aspect-ratio: 1.24;border-radius:14px}
+ .ona-feature-card-copy{padding:12px;gap:4px}
+ .ona-feature-card-copy strong{font-size:clamp(1rem,1.2vw,1.25rem)}
+ .ona-feature-card-copy small{font-size:11px;line-height:1.3}
+ .ona-feature-card-icon{font-size:18px}
+ .ona-feature-open{font-size:11px;margin-top:3px}
+}
+@media(max-width:700px){
+ .ona-features-view{padding:14px 12px}
+ .ona-feature-intro h2{font-size:clamp(1.65rem,7vw,2.15rem)}
+ .ona-feature-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+ .ona-feature-photo-card{aspect-ratio:1.15;min-height:0;border-radius:13px}
+ .ona-feature-card-copy{padding:10px;gap:3px}
+ .ona-feature-card-copy strong{font-size:1rem}
+ .ona-feature-card-copy small{font-size:10px;line-height:1.3}
+ .ona-feature-card-icon{font-size:17px}
+ .ona-feature-open{font-size:10px;margin-top:3px}
+}
+
+/* ONAHEYA v4 | compact landing with true square media cards */
+.landing-page .hero{gap:clamp(12px,2vw,22px)!important;align-items:center}
+.landing-page .hero-text h1{font-size:clamp(2rem,3.25vw,3.45rem)!important;line-height:1.04!important}
+.landing-page .hero-description{font-size:clamp(.84rem,1.05vw,.98rem)!important;line-height:1.46!important}
+.landing-page .hero-actions{margin-top:12px!important;gap:8px!important}
+.landing-page .hero-actions button{padding:10px 15px!important;font-size:.84rem!important}
+.landing-page .hero-community{margin-top:10px!important}
+.landing-page .hero-visual{min-width:0}
+.landing-page .hero-room{height:auto!important;min-height:0!important;aspect-ratio:1/1!important;width:min(100%,405px)!important;max-height:405px!important;margin-inline:auto!important;border-radius:19px!important}
+/* City photo cards are perfect squares, not stretched rectangles */
+.landing-page .hero-room .floating-user{aspect-ratio:1/1!important;width:22%!important;height:auto!important;max-width:90px!important;max-height:none!important;border-radius:13px!important}
+.landing-page .hero-room .floating-user-image{width:100%;height:100%;object-fit:cover}
+.landing-page .hero-room .tv-screen{width:60%!important;height:42%!important;min-height:0!important}
+.landing-page .room-card,.landing-page .room-image{aspect-ratio:1/1;min-height:0;height:auto;max-height:none}
+.landing-page .feature-card{aspect-ratio:1/1;min-height:0;overflow:hidden}
+.landing-page .room-card img,.landing-page .room-image img{width:100%;height:100%;object-fit:cover}
+.ona-return-to-film{position:relative;z-index:5;align-self:flex-start;margin:3px 0 7px 14px;padding:7px 12px;border:1px solid #ccd9ce;border-radius:999px;background:#fffaf1;color:#244632;font-size:12px;font-weight:700;cursor:pointer}
+@media(max-width:700px){.landing-page .hero{gap:12px!important}.landing-page .hero-text h1{font-size:clamp(1.95rem,8vw,2.7rem)!important}.landing-page .hero-room{width:min(100%,325px)!important;max-height:325px!important}.landing-page .hero-room .floating-user{width:23%!important;max-width:76px!important}.landing-page .hero-community{display:none!important}.landing-page .hero-description{font-size:.85rem!important}}
+
+/* v5: one navigation, one account control; no repeated Browse/Community CTAs */
+.landing-page .navbar{gap:clamp(12px,1.5vw,20px)}
+.landing-page .nav-links{gap:clamp(9px,1.5vw,22px)}
+.landing-page .nav-tab{font-size:clamp(.76rem,.95vw,.9rem);white-space:nowrap}
+.landing-page .navbar-actions{gap:8px;flex-shrink:0}
+.landing-page .navbar-actions .secondary-btn{padding:9px 12px;font-size:.83rem;white-space:nowrap}
+@media (max-width:1100px){
+ .landing-page .navbar .nav-links{display:none}
+ .landing-page .navbar-actions .ona-header-messages{display:none}
+ .landing-page .mobile-menu-toggle{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#e8eee5;color:#264d3b}
+ .landing-page .navbar-actions .ona-header-account{display:none}
+ .landing-page .navbar{flex-wrap:nowrap;justify-content:space-between}
+}
+
+/* Hero remains cinematic while giving participant portraits breathing room. */
+@media(min-width:701px){.landing-page .hero-room{width:min(100%,510px)!important;max-height:510px!important}.landing-page .hero-room .floating-user{width:25%!important;max-width:125px!important}}
+@media(max-width:700px){.landing-page .hero-room{width:min(100%,380px)!important;max-height:380px!important}.landing-page .hero-room .floating-user{width:25%!important;max-width:94px!important}}
+
+/* ONAHEYA V8 — balanced editorial hero */
+@media(min-width:900px){.landing-page .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.08fr)!important;gap:clamp(24px,4vw,54px)!important;align-items:center!important}.landing-page .hero-text h1{font-size:clamp(3.05rem,4.65vw,4.6rem)!important;line-height:1.04!important}.landing-page .hero-description{max-width:510px;font-size:clamp(.96rem,1.18vw,1.08rem)!important;line-height:1.6!important}.landing-page .hero-room{width:min(100%,570px)!important;max-height:none!important;aspect-ratio:1.12/1!important;border-radius:28px!important}.landing-page .hero-room .floating-user{width:25%!important;max-width:122px!important}.landing-page .hero-text{max-width:575px}}
+@media(min-width:700px) and (max-width:899px){.landing-page .hero-room{width:min(100%,520px)!important;max-height:none!important}}
+@media(max-width:699px){.landing-page .hero-text h1{font-size:clamp(2.2rem,9vw,3rem)!important}.landing-page .hero-room{width:min(100%,410px)!important;max-height:none!important}.landing-page .hero-description{font-size:.94rem!important}}
+
+/* v10: remove the obsolete text layered over the four-city Home collage. */
+.landing-page .hero-room .room-note,.landing-page .hero-room .tv-overlay{display:none!important}
+.landing-page .hero-room{overflow:hidden!important;isolation:isolate}

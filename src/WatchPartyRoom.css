@@ -1,0 +1,743 @@
+
+/* ==========================================
+   ONAHEYA — WATCH PARTY ROOM
+========================================== */
+
+.watch-party-screen {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  color: #264d3b;
+  border-radius: 24px;
+  background: #f7efe2;
+}
+
+.watch-party-screen.mood-cozy {
+  background: linear-gradient(135deg, #fbecd4, #e7d0b2);
+}
+
+.watch-party-screen.mood-sunset {
+  background: linear-gradient(135deg, #f9dec6, #e8b1a0);
+}
+
+.watch-party-screen.mood-rainy {
+  background: linear-gradient(135deg, #e1e9ed, #b6c9d4);
+}
+
+.watch-party-screen.mood-late-night {
+  background: linear-gradient(135deg, #253349, #48516b);
+}
+
+.watch-party-screen.mood-romance {
+  background: linear-gradient(135deg, #f8dfdf, #e6beca);
+}
+
+.watch-party-atmosphere {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.watch-party-atmosphere > .mood-decorations {
+  position: absolute;
+  inset: 0;
+}
+
+.watch-party-screen .mood-decorations {
+  z-index: 0;
+}
+
+.watch-party-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: clamp(14px, 2vw, 24px);
+}
+
+.watch-party-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.watch-party-heading h1 {
+  margin: 4px 0 0;
+  font-family: Georgia, serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.5rem);
+  line-height: 1.08;
+  color: #254a38;
+  overflow-wrap: anywhere;
+}
+
+.watch-back-button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+  color: #496853;
+  font-size: .78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.watch-party-eyebrow,
+.watch-small-heading {
+  color: #b36e55;
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+.watch-party-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+}
+
+.watch-room-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #ffffffa8;
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: #ffffffb0;
+  color: #365743;
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+.watch-invite-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 14px;
+  background: #284936;
+  color: white;
+  font: inherit;
+  font-size: .75rem;
+  cursor: pointer;
+}
+
+.watch-invite-button strong {
+  letter-spacing: .12em;
+}
+
+.watch-party-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(270px, .85fr);
+  gap: 15px;
+  flex: 1;
+  min-height: 0;
+}
+
+.watch-party-layout.chat-hidden {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.watch-player-column {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  min-height: 0;
+}
+
+.watch-player-card,
+.watch-chat-panel,
+.watch-room-bottom {
+  border: 1px solid rgba(255,255,255,.65);
+  background: rgba(255,252,247,.9);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px #392b2314;
+}
+
+.watch-player-card {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+}
+
+.watch-player-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 4px;
+}
+
+.watch-now-playing {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #3b674b;
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.watch-status-dot,
+.watch-person-online {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4d9f68;
+  box-shadow: 0 0 0 3px #4d9f6828;
+}
+
+.watch-demo-label {
+  font-size: .69rem;
+  color: #867b6d;
+}
+
+.watch-video-frame {
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #101c1a;
+}
+
+.watch-video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  max-height: 100%;
+  object-fit: contain;
+  background: #101c1a;
+}
+
+.watch-player-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 4px 2px 2px;
+}
+
+.watch-film-info span {
+  font-size: .61rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  color: #b6745a;
+}
+
+.watch-film-info h2 {
+  font-family: Georgia, serif;
+  color: #284936;
+  font-size: clamp(1.05rem, 1.5vw, 1.4rem);
+  margin: 4px 0;
+}
+
+.watch-film-info p {
+  font-size: .73rem;
+  color: #7b7c70;
+}
+
+.watch-playback-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.watch-control-button {
+  border: 1px solid #d5ded0;
+  border-radius: 999px;
+  padding: 10px 13px;
+  background: #f0f3eb;
+  color: #284936;
+  font-family: inherit;
+  font-size: .75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.watch-control-button.primary {
+  background: #284936;
+  border-color: #284936;
+  color: white;
+}
+
+.watch-room-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 17px;
+}
+
+.watch-participants {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.watch-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.watch-person-avatar {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 12px;
+  background: #e3e9da;
+  font-weight: 800;
+  color: #284936;
+}
+
+.watch-person > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: .78rem;
+}
+
+.watch-person small {
+  font-size: .66rem;
+  color: #7b897b;
+}
+
+.watch-person-online {
+  margin-left: 7px;
+}
+
+.watch-room-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #5c7b61;
+}
+
+.watch-room-message > span {
+  font-size: 1.9rem;
+  color: #c96b4b;
+}
+
+.watch-room-message p {
+  font-size: .75rem;
+  line-height: 1.4;
+}
+
+/* CHAT */
+
+.watch-chat-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.watch-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px;
+  border-bottom: 1px solid #e8e8df;
+}
+
+.watch-chat-header h2 {
+  font-family: Georgia, serif;
+  font-size: 1.45rem;
+  margin: 5px 0 0;
+  color: #284936;
+}
+
+.watch-chat-status {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: #edf0e7;
+  font-size: .64rem;
+  color: #6a806e;
+  white-space: nowrap;
+}
+
+.watch-chat-messages {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 18px;
+}
+
+.watch-welcome-message {
+  text-align: center;
+  padding: 10px 8px 18px;
+  color: #637668;
+}
+
+.watch-welcome-message > span {
+  font-size: 1.6rem;
+}
+
+.watch-welcome-message h3 {
+  font-family: Georgia, serif;
+  color: #284936;
+  margin: 8px 0;
+}
+
+.watch-welcome-message p {
+  font-size: .75rem;
+  line-height: 1.6;
+}
+
+.watch-message {
+  align-self: flex-end;
+  width: fit-content;
+  max-width: 90%;
+  padding: 11px 13px;
+  border-radius: 16px 16px 4px 16px;
+  background: #e7ede2;
+  color: #284936;
+  overflow-wrap: anywhere;
+}
+
+.watch-message-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.watch-message-meta strong {
+  font-size: .68rem;
+}
+
+.watch-message-meta small {
+  color: #7c897e;
+  font-size: .6rem;
+}
+
+.watch-message p {
+  font-size: .81rem;
+  line-height: 1.45;
+}
+
+.watch-reaction-message p {
+  font-size: 1.5rem;
+}
+
+.watch-chat-composer {
+  padding: 12px;
+  border-top: 1px solid #e8e8df;
+}
+
+.watch-reactions {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 11px;
+}
+
+.watch-reactions button {
+  border: none;
+  border-radius: 10px;
+  background: #f3eee6;
+  width: 34px;
+  height: 34px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.watch-chat-composer form {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid #e3e5dc;
+  background: white;
+  border-radius: 999px;
+}
+
+.watch-chat-composer input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: .78rem;
+  color: #284936;
+  outline: none;
+}
+
+.watch-chat-composer form > button {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 50%;
+  color: white;
+  background: #284936;
+  cursor: pointer;
+}
+
+.watch-chat-composer form > button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.watch-party-feedback {
+  align-self: flex-start;
+  border-radius: 10px;
+  background: #fff8ec;
+  padding: 8px 12px;
+  font-size: .75rem;
+  color: #284936;
+}
+
+.watch-party-disclaimer {
+  text-align: center;
+  color: #65786c;
+  font-size: .66rem;
+}
+
+/* Night mode readability */
+
+.watch-party-screen.mood-late-night
+.watch-party-heading h1,
+.watch-party-screen.mood-late-night
+.watch-party-eyebrow,
+.watch-party-screen.mood-late-night
+.watch-party-disclaimer,
+.watch-party-screen.mood-late-night
+.watch-back-button {
+  color: #fff4e6;
+}
+
+/* Keyboard and remote focus */
+
+.watch-party-screen button:focus-visible,
+.watch-party-screen input:focus-visible,
+.watch-party-screen video:focus-visible {
+  outline: 3px solid #d47755;
+  outline-offset: 3px;
+}
+
+.watch-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .watch-party-screen {
+    overflow-y: auto;
+  }
+
+  .watch-party-content {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .watch-party-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .watch-video-frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  .watch-chat-panel {
+    min-height: 340px;
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .watch-party-header {
+    align-items: flex-start;
+  }
+
+  .watch-party-header-actions {
+    width: 100%;
+  }
+
+  .watch-invite-button {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .watch-party-content {
+    padding: 12px;
+  }
+
+  .watch-player-bottom {
+    align-items: flex-start;
+  }
+
+  .watch-room-message {
+    display: none;
+  }
+
+  .watch-control-button {
+    padding: 9px 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .watch-party-screen .mood-decorations *,
+  .watch-party-screen .mood-decorations *::before,
+  .watch-party-screen .mood-decorations *::after {
+    animation: none !important;
+  }
+}
+
+/* ==========================================
+   ONAHEYA — BIGGER CINEMA SCREEN
+========================================== */
+
+/* Give the watch room more viewing space */
+
+.watch-party-screen {
+  overflow-y: auto;
+}
+
+.watch-party-content {
+  height: auto;
+  min-height: 100%;
+  gap: 12px;
+}
+
+/* Player takes priority over chat */
+
+.watch-party-layout {
+  grid-template-columns:
+    minmax(0, 2.5fr)
+    minmax(260px, 0.8fr);
+  align-items: start;
+}
+
+/* Make the video panel spacious */
+
+.watch-player-card {
+  flex: none;
+  padding: 14px;
+}
+
+/* Large cinematic screen */
+
+.watch-video-frame {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  flex: none;
+  min-height: 0;
+  border-radius: 18px;
+  background: #101c1a;
+}
+
+/* Fill the video frame */
+
+.watch-video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+/* Keep controls underneath */
+
+.watch-player-bottom {
+  padding: 12px 5px 5px;
+}
+
+/* Keep chat visible beside the screen */
+
+.watch-chat-panel {
+  height: 100%;
+  min-height: 440px;
+  max-height: 640px;
+}
+
+/* Compact the lower section */
+
+.watch-room-bottom {
+  padding: 10px 14px;
+}
+
+/* Medium screens */
+
+@media (max-width: 1100px) {
+  .watch-party-layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(250px, 0.72fr);
+  }
+}
+
+/* Smaller screens */
+
+@media (max-width: 850px) {
+  .watch-party-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .watch-video-frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  .watch-chat-panel {
+    min-height: 300px;
+    max-height: 420px;
+  }
+}
+
+/* Very small screens */
+
+@media (max-width: 600px) {
+  .watch-party-content {
+    padding: 10px;
+  }
+
+  .watch-player-card {
+    padding: 8px;
+  }
+
+  .watch-video-frame {
+    border-radius: 12px;
+  }
+
+  .watch-player-bottom {
+    padding: 8px 2px;
+  }
+}

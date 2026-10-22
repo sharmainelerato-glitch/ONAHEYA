@@ -1,0 +1,101 @@
+/* ONAHEYA — poster-led film catalogue */
+.ob-shell{height:100%;overflow:auto;padding:clamp(18px,3vw,38px);color:#244735}
+.ob-headline h2,.ob-detail-content h2{font:clamp(2.3rem,5vw,4.4rem)/1.05 Georgia,serif;letter-spacing:-.03em;margin:8px 0 12px}
+.ob-headline p{max-width:600px;color:#687468;line-height:1.55}
+.ob-featured{position:relative;min-height:285px;margin:24px 0 28px;border-radius:25px;overflow:hidden;background:#14251d;color:#fff;display:flex;align-items:end}
+.ob-featured>.ob-poster{position:absolute;inset:0;width:100%;height:100%;opacity:.6}
+.ob-featured>.ob-poster img{object-fit:cover;object-position:50% 36%}
+.ob-featured:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,30,22,.95),rgba(13,30,22,.36) 75%),linear-gradient(0deg,rgba(13,30,22,.7),transparent)}
+.ob-featured-content{position:relative;z-index:1;padding:clamp(20px,5vw,44px);max-width:620px}
+.ob-featured-content>span{font-size:12px;letter-spacing:.18em;color:#fae2bf}
+.ob-featured-content h3{font:clamp(2.2rem,5vw,4rem) Georgia,serif;margin:10px 0}
+.ob-featured-content p{line-height:1.5;max-width:450px}
+.ob-featured-content button,.ob-main{background:#f9ead2!important;color:#193a2b!important;font-weight:750!important}
+.ob-featured-content button{padding:13px 20px;border-radius:999px;margin-top:10px}
+.ob-search{margin:22px 0}.ob-search-label{font-size:13px;font-weight:700;display:block}
+.ob-search input{display:block;width:100%;margin:8px 0 14px;background:white;border:1px solid #d8e1d6;border-radius:13px;padding:14px 16px;font:inherit;color:#193a2b}
+.ob-moods{display:flex;flex-wrap:wrap;gap:8px}.ob-moods button{padding:8px 13px;background:#ebf0e7;color:#244735;border-radius:999px;font-size:12px;border:1px solid #dce5d9}
+.ob-moods button[aria-pressed=true]{background:#264d3b;color:white}
+.ob-section-title{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:25px 0 15px}.ob-section-title h3{font:1.55rem Georgia,serif;margin:0}.ob-section-title span{font-size:12px;color:#69816f}
+.ob-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:16px}
+.ob-tile{border:0;border-radius:17px;overflow:hidden;background:#fffaf2;color:#234735;text-align:left;display:flex;flex-direction:column;padding:0;box-shadow:0 8px 24px #243a2915;min-width:0;transition:transform .2s,box-shadow .2s}
+.ob-tile:hover{transform:translateY(-4px);box-shadow:0 14px 30px #243a2925}
+.ob-tile:focus-visible,.ob-actions button:focus-visible,.ob-back:focus-visible{outline:3px solid #c96b4b;outline-offset:2px}
+.ob-poster{position:relative;display:block;width:100%;aspect-ratio:2/3;overflow:hidden;background:linear-gradient(145deg,#a9b79c,#294934 62%,#12291e)}
+.ob-poster img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.ob-poster-wide{aspect-ratio:auto;height:100%}
+.ob-poster-fallback{position:absolute;inset:0;color:#fff;display:flex;flex-direction:column;justify-content:end;gap:12px;padding:18px;background:linear-gradient(160deg,#ab755a,#223b30)}
+.ob-poster-fallback>span{font-size:10px;letter-spacing:.2em}.ob-poster-fallback strong{font:1.5rem Georgia,serif}
+.ob-tile-info{display:grid;gap:7px;padding:13px;min-height:90px}.ob-tile-info strong{font-size:14px;line-height:1.25}.ob-tile-info small{font-size:11px;color:#657366}.ob-book-tag{font-size:11px;color:#b45e43}
+.ob-back,.ob-actions button{border:1px solid #dbe5da;border-radius:999px;background:#f0f4ed;color:#264d3b;padding:11px 17px;cursor:pointer;font:inherit}
+.ob-back{margin-bottom:20px}
+.ob-detail-hero{display:grid;grid-template-columns:minmax(185px, .68fr) 1.32fr;min-height:420px;gap:30px;padding:26px;border-radius:26px;background:#1a3329;color:#fff;overflow:hidden}
+.ob-detail-hero>.ob-poster{border-radius:17px;min-height:390px}.ob-detail-content{align-self:center}.ob-detail-content>p{line-height:1.65;color:#e0e5de}.ob-detail-content .eyebrow{color:#ebcaa8}.ob-meta{font-size:13px}.ob-actions{display:flex;gap:9px;flex-wrap:wrap;margin:24px 0}.ob-actions button{background:#eef3e8;color:#21422f;font-size:12px}
+.ob-novel-pill{display:inline-block;border:1px solid #c7b29a;border-radius:99px;padding:8px 12px;font-size:12px;color:#fee9d5}.ob-film-credit{color:#b9cabb;line-height:1.5}.ob-disclaimer{margin:22px 0;color:#6a786b;font-size:12px;line-height:1.55}
+@media(max-width:700px){.ob-shell{height:auto;overflow:visible}.ob-featured{min-height:260px}.ob-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.ob-tile-info{padding:10px}.ob-detail-hero{grid-template-columns:1fr;gap:18px;padding:15px}.ob-detail-hero>.ob-poster{height:240px;min-height:0}.ob-detail-content{padding:0 5px 10px}.ob-actions{flex-direction:column}.ob-actions button{width:100%}}
+@media(prefers-reduced-motion:reduce){.ob-tile{transition:none}}
+
+
+/* ONAHEYA | compact poster shelf inspired by film discovery UX */
+.ob-shell{padding:clamp(14px,2vw,25px)}
+.ob-headline h2,.ob-detail-content h2{font-size:clamp(1.7rem,3vw,2.8rem)}
+.ob-featured{min-height:210px;margin:14px 0 20px;border-radius:16px}
+.ob-featured-content{padding:clamp(15px,2.5vw,27px)}
+.ob-featured-content h3{font-size:clamp(1.75rem,3vw,2.75rem)}
+.ob-featured-content button{padding:9px 15px;margin-top:5px}
+.ob-search{margin:14px 0}
+.ob-search input{padding:10px 12px;margin:6px 0 10px}
+.ob-moods button{padding:6px 10px;font-size:11px}
+.ob-section-title{margin:18px 0 10px}
+.ob-section-title h3{font-size:1.25rem}
+.ob-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:11px}
+.ob-tile{border-radius:10px}
+.ob-tile-info{min-height:0;padding:9px;gap:4px}
+.ob-tile-info strong{font-size:12px}
+.ob-tile-info small{font-size:10px}
+.ob-detail-hero{grid-template-columns:minmax(155px,.45fr) 1.55fr;min-height:0;padding:20px;gap:22px;border-radius:18px}
+.ob-detail-hero>.ob-poster{min-height:0;max-height:365px}
+.ob-actions{margin:14px 0}
+.ob-actions button,.ob-back{padding:8px 12px;font-size:12px}
+@media(max-width:700px){
+ .ob-shell{padding:12px}
+ .ob-featured{min-height:195px}
+ .ob-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .ob-tile-info{padding:7px}
+ .ob-tile-info strong{font-size:11px}
+ .ob-detail-hero{grid-template-columns:1fr;padding:12px;gap:12px}
+ .ob-detail-hero>.ob-poster{height:200px}
+ .ob-actions{flex-direction:row;gap:6px}
+ .ob-actions button{width:auto;flex:1 1 42%}
+}
+@media(max-width:380px){.ob-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* v4 movie detail uses compact action pills and clear hierarchy */
+.ob-detail-content h2{font-size:clamp(1.6rem,2.8vw,2.65rem)}
+.ob-detail-content .ob-actions{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}
+.ob-detail-content .ob-actions button{flex:0 1 auto;padding:8px 12px;font-size:12px;line-height:1.3;white-space:normal}
+.ob-detail-hero{align-items:start}.ob-detail-hero>.ob-poster{max-height:330px}
+@media(max-width:700px){.ob-detail-content .ob-actions button{flex:1 1 45%}}
+
+/* v5: compact streaming-style genre filter */
+.ob-genres{display:flex;gap:7px;overflow-x:auto;padding:7px 0 10px;scrollbar-width:thin}
+.ob-genres button{flex:0 0 auto;padding:6px 11px;background:#faf8f2;border:1px solid #dbe3d8;border-radius:999px;color:#284936;font-size:12px;white-space:nowrap}
+.ob-genres button[aria-pressed=true]{background:#264d3b;color:#fff;border-color:#264d3b}
+
+/* v9: compact featured film */
+.ob-featured{width:min(100%,620px)!important;aspect-ratio:4/3;min-height:0!important;max-height:460px;margin:18px auto 26px!important;border-radius:22px!important}
+.ob-featured-content{padding:clamp(18px,4vw,34px)!important}
+.ob-featured-content h3{font-size:clamp(2rem,4vw,3rem)!important}
+@media(max-width:650px){.ob-featured{aspect-ratio:1/1;max-height:none}}
+
+/* v16: content formats and episodes */
+.ob-categories{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 8px}
+.ob-categories button{background:#f5eee3;color:#274835;border:1px solid #d7ddcf;border-radius:999px;padding:10px 16px;cursor:pointer;font-weight:650}
+.ob-categories button[aria-pressed="true"]{background:#254d3c;color:#fff;border-color:#254d3c}
+.ob-episodes{margin:20px 0;padding:16px;background:#f8f5ee;border:1px solid #e1e5d8;border-radius:18px}
+.ob-episodes h3{font-family:Georgia,serif;font-size:1.25rem;margin:0 0 12px}
+.ob-episodes p{font-size:.9rem;color:#526655;margin:12px 0 0}
+.ob-episode-list{display:flex;flex-wrap:wrap;gap:10px}
+.ob-episode{flex:1 1 175px;display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:12px 15px;text-align:left;border-radius:12px;border:1px solid #d7ddcf;background:#fff;color:#284b37;cursor:pointer}
+.ob-episode.is-selected{border-color:#2a6245;background:#e9f2e8;box-shadow:0 0 0 1px #2a6245}
+.ob-episode small{color:#68816e}

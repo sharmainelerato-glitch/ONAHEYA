@@ -1,0 +1,83 @@
+.od-page{overflow-y:auto;max-height:calc(100dvh - 110px);padding:24px;min-height:0}.od-page header{margin-bottom:18px}.od-tabs{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.od-tabs button,.od-actions button{padding:10px 18px;border:1px solid #b6c4b8;border-radius:30px;background:#fffaf2;color:#284936;cursor:pointer}.od-tabs button.active{background:#284936;color:white}.od-grid{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(320px,1.2fr);gap:22px;align-items:start}.od-card,.od-post{background:#fffdf8;border:1px solid #e0e7dc;border-radius:20px;padding:20px;box-shadow:0 6px 20px #2849360b}.od-card{display:grid;gap:13px}.od-card label{display:grid;gap:6px;font-weight:600;font-size:14px;color:#284936}.od-card input,.od-card textarea,.od-card select{font:inherit;border:1px solid #cbd7cd;padding:12px;border-radius:10px;background:#fff;color:#243b2d;width:100%;box-sizing:border-box}.od-card .od-check{display:flex;align-items:center;gap:9px;font-weight:400}.od-card .od-check input{width:auto}.od-feed{display:grid;gap:13px}.od-feed>h3{margin:0 0 4px}.od-author{display:flex;align-items:center;gap:10px}.od-author img,.od-author>span{width:38px;height:38px;border-radius:50%;object-fit:cover;background:#d6e6d8;display:grid;place-items:center}.od-author div{display:grid}.od-author small,.od-author time,.od-tag,.od-help{font-size:12px;color:#718377}.od-author time{margin-left:auto}.od-post h3{margin:8px 0}.od-review{white-space:pre-wrap;overflow-wrap:anywhere}.od-muted{display:block;margin-top:10px;border:0;background:none;color:#9d5a45;cursor:pointer}.od-error{color:#a53e32}.od-notice{color:#284936}.od-profile-posts{margin:20px auto;max-width:640px;display:grid;gap:12px}.od-profile-posts>.od-post{width:100%}@media(max-width:760px){.od-grid{grid-template-columns:1fr}.od-page{max-height:calc(100dvh - 85px);padding:15px}}
+
+.view-profile,.view-social{overflow-y:auto!important;max-height:calc(100dvh - 90px)!important;}
+.view-profile .ona-account{overflow:visible;max-height:none;}
+.view-social .sc-page{overflow-y:auto;max-height:calc(100dvh - 100px);}
+
+.od-plan{margin:10px 8px 6px 0;border:0;border-radius:999px;padding:11px 17px;background:#284936;color:#fffaf2;cursor:pointer;font-weight:650}.od-plan:hover{background:#365d44}.od-plan:disabled{opacity:.55;cursor:not-allowed}
+
+/* ONAHEYA — poster-led Discover catalogue */
+.od-catalog{background:#fbf5eb;border:1px solid #e4e0d5;border-radius:22px;padding:18px;margin:12px 0 22px;}
+.od-catalog-heading h3{font-family:Georgia,serif;color:#284936;font-size:clamp(1.3rem,2vw,1.7rem);margin:4px 0;}
+.od-catalog-heading p{color:#677268;margin:6px 0 12px;}
+.od-catalog-search{display:flex;gap:9px;margin:12px 0;}
+.od-catalog-search input,.od-catalog-search select{min-width:0;padding:11px 12px;border-radius:12px;border:1px solid #d5dfd4;background:white;color:#284936;font:inherit;}
+.od-catalog-search input{flex:1;}.od-catalog-search select{width:110px;}
+.od-catalog-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+.od-movie{background:#fffdf8;border:1px solid #e4e7df;border-radius:15px;overflow:hidden;min-width:0;display:flex;flex-direction:column;}
+.od-movie>img,.od-catalog-placeholder{width:100%;aspect-ratio:2/3;object-fit:cover;background:linear-gradient(155deg,#386550,#e1c0a4);display:grid;place-items:center;font-size:2rem;}
+.od-movie-info{padding:11px;display:flex;flex:1;flex-direction:column;gap:5px;min-width:0;}
+.od-movie-info strong{font-size:13px;line-height:1.35;color:#284936;}
+.od-movie-info small{color:#647268;font-size:11px;}
+.od-movie-info p{font-size:11px;color:#637067;line-height:1.45;margin:2px 0 8px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;}
+.od-movie-actions{display:grid;gap:5px;margin-top:auto;}.od-movie-actions button,.od-pagination button{background:#eef3eb;color:#284936;border:1px solid #dce5d9;border-radius:10px;padding:8px 6px;font-size:11px;cursor:pointer;}
+.od-movie-actions button:first-child{background:#284936;color:white;}
+.od-movie-actions button:hover,.od-pagination button:hover{filter:brightness(.94)}.od-pagination button:disabled{opacity:.45;cursor:not-allowed;}
+.od-pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin:15px 0;}
+.od-attribution{font-size:10px;color:#74796e;margin:10px 0 0;line-height:1.5;}
+.od-post-cover{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;align-items:start;}
+.od-post-poster,.od-poster-placeholder{width:90px;aspect-ratio:2/3;object-fit:cover;border-radius:10px;background:linear-gradient(135deg,#c99876,#345c47);}
+.od-poster-placeholder{display:grid;align-content:center;justify-items:center;color:white;gap:5px;font-size:1.5rem;}.od-poster-placeholder small{font-size:9px;}
+.od-post-content{min-width:0;}.od-post-content h3{overflow-wrap:anywhere;}
+@media(max-width:950px){.od-catalog-list{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:620px){.od-catalog{padding:12px;}.od-catalog-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}.od-movie-info{padding:9px;}.od-catalog-search{flex-wrap:wrap;}.od-catalog-search input{flex-basis:60%;}.od-post-cover{grid-template-columns:72px minmax(0,1fr);gap:9px;}.od-post-poster,.od-poster-placeholder{width:72px;}}
+
+/* ONAHEYA's actual playable-demo shelf */
+.od-playable-library{margin:18px 0 26px;padding:20px;background:#fffaf4;border:1px solid #e8ded2;border-radius:22px}
+.od-playable-search{width:100%;max-width:350px;padding:12px 15px;border:1px solid #dcd8ce;border-radius:14px;margin:12px 0 18px}
+.od-playable-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.od-playable-card{background:#fff;border:1px solid #e8e1d8;border-radius:18px;overflow:hidden;min-width:0}
+.od-playable-art{position:relative;display:grid;place-items:center;height:132px;background:linear-gradient(130deg,#f2c7a8,#bd6e54 50%,#2c4e40);color:white}
+.od-film-night .od-playable-art{background:linear-gradient(125deg,#1e3145,#705e83,#d8a681)}
+.od-film-steel .od-playable-art{background:linear-gradient(125deg,#24313e,#758d9c,#c0a394)}
+.od-film-forest .od-playable-art{background:linear-gradient(125deg,#234f35,#82a66f,#e5bd80)}
+.od-film-play{font-size:34px;border:2px solid #fff8;border-radius:50%;height:70px;width:70px;display:grid;place-items:center;padding-left:4px}
+.od-playable-art small{position:absolute;right:11px;bottom:9px;background:#151c1a88;padding:4px 9px;border-radius:14px}
+.od-playable-body{padding:15px;display:flex;flex-direction:column;gap:7px}
+.od-playable-body h4{margin:0;font-size:1.08rem;color:#264d3b}
+.od-playable-body p{margin:0;font-size:.85rem;color:#536456;line-height:1.4}
+.od-playable-body small{font-size:.69rem;color:#73766c}
+.od-playable-btn{background:#264d3b!important;color:white!important;padding:11px;border-radius:12px;margin-top:5px;font-weight:700}
+@media(max-width:600px){.od-playable-library{padding:12px}.od-playable-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.od-playable-art{height:105px}.od-playable-body{padding:10px}.od-playable-body p{font-size:.75rem}}
+
+/* Novel-adaptation companion: never overtakes movie-first Discover. */
+.od-film-alice .od-playable-art{background:linear-gradient(125deg,#243b4c,#678e8a,#d4b997)}
+.od-film-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}.od-film-actions button{flex:1 1 140px}.od-read-btn{background:#edf1e7;color:#264d3b;border:1px solid #bed3bf;border-radius:12px;padding:11px;font-weight:700;font-size:.85rem}
+
+.oss-moods{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.oss-moods button{border:1px solid #d5e2d6;border-radius:999px;background:#fffaf3;padding:8px 12px;color:#284936;cursor:pointer}.oss-moods button[aria-pressed="true"]{background:#284936;color:white}
+
+/* v4: cinematic recommendation covers, sized to the review */
+.od-post-cover{display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:start;min-width:0}
+.od-post-poster,.od-poster-placeholder{width:112px;height:158px;aspect-ratio:auto;border-radius:11px;object-fit:cover;display:block}
+.od-poster-placeholder{display:flex;flex-direction:column;justify-content:end;gap:6px;padding:10px;background:linear-gradient(155deg,#a77360,#375d4c 55%,#172e27);color:#fff;overflow:hidden}
+.od-poster-placeholder span{font-size:9px;letter-spacing:.13em}.od-poster-placeholder strong{font:700 16px/1.12 Georgia,serif;overflow-wrap:anywhere}.od-poster-placeholder small{font-size:10px;color:#ebeadc}
+.od-post-content{min-width:0}.od-post-content h3{overflow-wrap:anywhere}
+@media(max-width:620px){.od-post-cover{grid-template-columns:78px minmax(0,1fr);gap:10px}.od-post-poster,.od-poster-placeholder{width:78px;height:116px}.od-poster-placeholder{padding:6px}.od-poster-placeholder strong{font-size:12px}.od-poster-placeholder span{font-size:7px}}
+
+/* ONAHEYA social & route refinements */
+.od-engagement{border-top:1px solid #e4e8e0;margin-top:12px;padding-top:10px;display:grid;gap:9px}
+.od-reactions{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.od-reactions button{border:1px solid #d9e1d8;background:#f9faf6;border-radius:999px;padding:6px 10px;font-size:12px}
+.od-reactions button[aria-pressed="true"]{border-color:#547f66;background:#e4eee4}
+.od-reactions span{font-size:12px;color:#66746a}
+.od-comments{max-height:240px;overflow:auto;display:grid;gap:6px}
+.od-comment{background:#f9f7f2;padding:8px 10px;border-radius:10px;font-size:12px}.od-comment p{margin:3px 0}
+.od-comment-form{display:flex;gap:6px;flex-wrap:wrap}.od-comment-form input{min-width:130px;flex:1;padding:10px;border:1px solid #d4ded1;border-radius:11px}.od-comment-form button{padding:8px 14px;background:#284d3a;color:white;border-radius:10px}
+.od-profile-stats,.ona-profile-counters{display:flex;flex-wrap:wrap;gap:18px;padding:12px 0}.ona-profile-summary{margin-top:18px;padding:18px;border:1px solid #dde6db;border-radius:18px;background:#fffaf4}.ona-profile-summary h3 small{font-size:12px;color:#647568}
+@media(max-width:650px){.od-reactions{gap:4px}}
+
+/* v7 social spaces */
+.od-author-link{display:flex;align-items:center;gap:9px;background:none;border:0;color:inherit;text-align:left;padding:0;cursor:pointer}.od-author-link:hover strong{text-decoration:underline}.od-social-tabs,.od-share-actions{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.od-social-tabs button,.od-share-actions button,.od-public-profile>button,.od-forward button{border-radius:999px;border:1px solid #d3ded2;background:#f5f8f0;padding:8px 12px;color:#284936;cursor:pointer}.od-social-tabs button.active{background:#284936;color:#fff}.od-people-panel{max-width:720px;margin:15px auto}.od-people-panel>input,.od-forward input{width:100%;padding:11px;border:1px solid #c6d5c8;border-radius:12px}.od-person-results{display:grid;gap:8px;margin-top:12px}.od-person-results button{display:flex;gap:12px;align-items:center;border:1px solid #dde5d9;border-radius:13px;background:#fffaf2;text-align:left;padding:10px;color:#284936;cursor:pointer}.od-person-results img,.od-person-results span{width:36px;height:36px;border-radius:50%;object-fit:cover}.od-person-results small{margin-left:auto}.od-public-profile{max-width:750px;margin:15px auto;background:#fffaf5;border:1px solid #dce5db;border-radius:18px;padding:18px}.od-profile-identity{display:flex;align-items:center;gap:15px}.od-profile-identity>img{width:78px;height:78px;border-radius:50%;object-fit:cover}.od-forward{display:flex;gap:7px;margin:9px 0}.od-forward input{min-width:0;flex:1}.od-reposted,.od-forward-from{font-size:12px;color:#63776a}.od-feed{min-width:0}@media(max-width:520px){.od-people-panel{width:100%}.od-public-profile{padding:12px}}
+
+/* V8: Social-first community layout and on-demand composer */
+.od-community-layout{display:flex!important;flex-direction:column!important;gap:12px!important;min-width:0}.od-community-stream{order:2;min-width:0}.od-community-stream .od-feed{width:100%;max-width:740px;margin:0 auto}.od-compose-slot{order:1;width:100%;max-width:740px;margin:0 auto}.od-compose-prompt{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:#fffdf9;border:1px solid #e5e8df;border-radius:15px;padding:11px 14px;color:#647367;box-shadow:0 4px 15px #294b3a09}.od-compose-prompt>span:nth-child(2){flex:1;background:#f4f6f1;border-radius:24px;padding:11px 17px}.od-compose-prompt b{font-size:12px;color:#fff;background:#2b503f;border-radius:22px;padding:10px 14px;white-space:nowrap}.od-compose-avatar{width:41px;height:41px;flex:none;display:grid;place-items:center;border-radius:50%;background:#e3eee1;font-weight:bold;color:#285442;overflow:hidden}.od-compose-avatar img{width:100%;height:100%;object-fit:cover}.od-compose-slot .od-card{width:100%;max-width:740px;margin:12px 0 0}.od-post-cover{max-width:740px}.od-community-layout .od-post{margin-bottom:12px}@media(max-width:650px){.od-compose-prompt{padding:8px;gap:7px}.od-compose-prompt>span:nth-child(2){padding:10px;font-size:12px}.od-compose-prompt b{padding:9px;font-size:11px}}
