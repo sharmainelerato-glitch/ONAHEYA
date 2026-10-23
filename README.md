@@ -1,137 +1,594 @@
+
 <div align="center">
-ONAHEYA ♡
-Different Places. Same Room.
-A social streaming experience where watching becomes something we share.
-Live Website · Source Code
+
+# ONAHEYA ♡
+
+### Different Places. Same Room.
+
+**Watch together. Feel closer. Make every story a shared experience.**
+
+A social streaming platform that brings entertainment,
+friendship, conversation, and shared experiences into
+one connected space.
+
+[**Launch ONAHEYA**](https://onaheya.vercel.app/)
+&nbsp;·&nbsp;
+[**GitHub Repository**](https://github.com/sharmainelerato-glitch/ONAHEYA)
+&nbsp;·&nbsp;
+[**Report an Issue**](https://github.com/sharmainelerato-glitch/ONAHEYA/issues)
+
+![License](https://img.shields.io/badge/License-MIT-green)
+![React](https://img.shields.io/badge/React-Vite-61DAFB)
+![Backend](https://img.shields.io/badge/Backend-Node.js-339933)
+![Status](https://img.shields.io/badge/Status-Active_Development-blue)
+
 </div>
+
 ---
-The idea
-Streaming makes it easy to find a story, but it doesn't always make it easy to experience that story together. Friends watch from different places, react in separate chats, and often lose the little moments that make movie nights memorable.
-ONAHEYA brings the social experience into the viewing experience. It combines a film-and-series discovery interface with shared watch rooms, conversation, recommendations, and ways to connect over the stories we love.
-The goal is simple: distance shouldn't mean watching alone.
-Experience highlights
-Experience	What it offers
-Watch Together	Create or join rooms with synchronized, host-controlled playback.
-Live room chat	Talk and react while watching, with room-level messaging controls.
-Private room messages	Optional one-to-one conversation between participants, subject to host settings.
-TapTap & shared moments	Send lightweight gestures and capture moments worth remembering during a session.
-Movie and series browsing	Discover titles and explore a curated playable demo catalogue.
-ONAHEYA Guide	AI-assisted discovery and conversation features powered through a server-side integration.
-Community	Share recommendations and reviews, react, comment, repost, save, and follow other members.
-Movie Dates	Plan a viewing session and invite other ONAHEYA members.
-Messages	Direct messaging between mutual followers and invite-based group conversations.
-Story Circles	Discuss films and participate in film-specific community experiences.
-Shared watchlists	Build watchlists with other members.
-Book-to-screen exploration	A reading and discussion experience for supported content.
-Offline downloads	An experimental, browser-dependent offline viewing experience for supported demo media.
-> **Demo scope:** Playback is limited to the demo media included or configured for this project. A title appearing in discovery results does **not** imply ONAHEYA has distribution or playback rights to it.
-How ONAHEYA works
-Discover a film, series, or conversation worth joining.
-Create or join a watch room using a room code.
-Watch together as host playback changes are synchronized across participants.
-React and connect through chat, gestures, private messages, and shared moments.
-Keep the conversation going through community recommendations, Story Circles, messages, and watchlists.
-Tech stack
-Layer	Technology
-Frontend	React, JavaScript, Vite, CSS
-Backend	Node.js, Express
-Real-time communication	Socket.IO
-Authentication	Existing ONAHEYA backend sessions; Supabase Auth integration in progress
-AI features	Groq-backed server integration
-Media delivery	Cloudflare R2
-Film and series metadata	TMDB integration for discovery metadata, when configured
-Frontend hosting	Vercel
-Backend hosting	Render
-Live deployment
-Frontend: https://onaheya.vercel.app/  
-Backend health endpoint: https://onaheya-backend.onrender.com/health
-The live frontend and backend are deployed separately. Some features require the backend service to be awake and correctly configured. A deployed URL is not, by itself, proof that every feature has passed end-to-end testing.
-Run locally
-Prerequisites
-Node.js and npm compatible with the project's installed dependencies
-Git
-Optional: credentials for Supabase, Groq, TMDB, and configured Cloudflare R2 media URLs
-1. Clone the repository
+
+## The Idea
+
+Movies and series bring people together, but streaming
+often remains an individual experience.
+
+Friends watch from different homes. Couples spend time
+apart. Communities discuss their favourite stories across
+disconnected social platforms.
+
+**ONAHEYA brings those experiences into one place.**
+
+Instead of only asking what someone wants to watch,
+ONAHEYA also asks:
+
+**Who do you want to experience it with?**
+
+The platform connects on-demand entertainment with
+synchronized viewing, social interaction, personal
+recommendations, and meaningful shared moments.
+
+---
+
+## What Is ONAHEYA?
+
+ONAHEYA is a social entertainment platform where users
+can discover movies and series, create shared viewing
+rooms, communicate in real time, and build connections
+around the stories they love.
+
+It combines three core experiences:
+
+| Experience | Description |
+|------------|-------------|
+| Watch | Discover and enjoy available movies and series |
+| Together | Watch in synchronized rooms with other people |
+| Connect | Share recommendations, discussions, and memories |
+
+ONAHEYA is designed around the idea that entertainment
+can create connections, even when people are physically
+apart.
+
+---
+
+## Features
+
+### 1. Movies and Series
+
+- Browse available movies and series
+- Discover titles through an organized interface
+- Open film and series detail pages
+- Play supported demo media
+- Explore multiple episodes where available
+- Access media hosted through Cloudflare R2
+
+ONAHEYA distinguishes between catalogue metadata and
+playable video content. Discovering a title does not
+automatically mean the full movie or series is licensed
+or available for streaming.
+
+### 2. Watch Together
+
+Create shared viewing rooms and enjoy films with others,
+even from different locations.
+
+Features include:
+
+- Public and private watch rooms
+- Unique room codes
+- Host-controlled playback
+- Synchronized play and pause
+- Playback-position synchronization
+- Real-time room updates
+- Shared room conversations
+- Floating reactions and social interactions
+
+Real-time functionality is powered by Socket.IO.
+
+### 3. Social Watch Rooms
+
+ONAHEYA brings communication directly into the
+viewing experience.
+
+Room features include:
+
+- Group chat
+- Optional private participant messages
+- Host-controlled private messaging permissions
+- Shared reactions
+- TapTap gestures
+- Shared moments and memories
+- Room mood and atmosphere settings
+
+This allows people to enjoy either a quieter viewing
+experience or a more social movie night.
+
+### 4. ONAHEYA Community
+
+Users can connect with other people through a
+movie-focused community.
+
+Community features include:
+
+- Personal profiles
+- Unique usernames
+- Profile photographs
+- Bios and favourite genres
+- Discoverable users
+- Following and followers
+- Film and series recommendations
+- Reactions and comments
+- Reposting recommendations
+- Saving and sharing posts
+- Notifications
+
+### 5. Direct and Group Messages
+
+ONAHEYA supports conversations beyond watch rooms.
+
+Users can:
+
+- Send direct messages where mutual-follow
+  requirements are satisfied
+- Create group conversations
+- Invite other users
+- Accept or decline invitations
+- Share their thoughts about entertainment
+
+### 6. Story Circles
+
+Story Circles create dedicated discussion spaces
+around films and stories.
+
+Features include:
+
+- Title-specific discussions
+- Spoiler-aware posts
+- Community reactions
+- Watch-next participation
+- Shared watchlists
+- Story-related conversations
+
+### 7. Movie Dates
+
+Users can organize shared viewing experiences.
+
+Features include:
+
+- Scheduled movie dates
+- Invitations
+- Invitation responses
+- Selected viewing moods
+- Associated live watch rooms
+
+### 8. ONAHEYA Guide
+
+ONAHEYA includes an AI-assisted discovery experience
+to help users explore entertainment and navigate
+their viewing choices.
+
+The backend supports integration with Groq for
+AI-powered guidance.
+
+AI-generated recommendations may be imperfect and
+should not be treated as guarantees of content
+availability or suitability.
+
+### 9. Books and Stories
+
+ONAHEYA explores the connection between books and
+screen adaptations.
+
+The prototype includes reading and discussion
+experiences for supported material.
+
+Full-text access is limited to works that are
+public domain, appropriately licensed, or used
+with permission.
+
+### 10. Authentication
+
+ONAHEYA supports:
+
+- Email registration through Supabase Auth
+- Unique public usernames
+- Email verification
+- Email and password sign-in
+- Password recovery
+- Profile management
+- Existing username-based account access
+  during the transition
+
+Supabase authentication is connected to the ONAHEYA
+backend through a verified-token exchange.
+
+Existing accounts require a separate migration or
+linking process before they can use Supabase-based
+password recovery.
+
+---
+
+## Fire TV Development
+
+ONAHEYA is being adapted for a television experience
+as part of the Amazon Build, Ship, Shape Hackathon.
+
+### Target Experience
+
+The TV version aims to provide:
+
+- A television-friendly interface
+- Fullscreen video playback
+- Directional remote-control navigation
+- Clear focus indicators
+- Browse and film selection with a D-pad
+- Back-button navigation
+- Access to watch-room experiences
+
+### Planned Technical Approach
+
+The existing React application will be reused inside
+a TV-targeted Android application.
+
+The Android implementation will provide a launcher,
+fullscreen presentation, and integration with
+television remote input.
+
+### Current Status
+
+The web application is deployed.
+
+The Android TV wrapper, remote-control experience,
+and emulator demonstration are in development.
+
+A successful browser deployment does not by itself
+verify Fire OS compatibility.
+
+---
+
+## Technology Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | React, JavaScript, Vite |
+| Styling | CSS |
+| Backend | Node.js, Express |
+| Real-time communication | Socket.IO |
+| Authentication | Supabase Auth and ONAHEYA session bridge |
+| AI integration | Groq |
+| Film metadata | TMDB API |
+| Video storage | Cloudflare R2 |
+| Frontend hosting | Vercel |
+| Backend hosting | Render |
+| Version control | Git and GitHub |
+| TV development | Android TV / Fire TV-targeted application (in progress) |
+
+---
+
+## System Architecture
+
+```text
+                   ONAHEYA
+                      |
+          +-----------+-----------+
+          |                       |
+     React Frontend          Android TV App
+        (Vite)                 (planned)
+          |                       |
+          +-----------+-----------+
+                      |
+                HTTPS / WebSocket
+                      |
+               Node.js Backend
+               Express + Socket.IO
+                      |
+        +-------------+-------------+
+        |             |             |
+   Supabase Auth   Groq AI      TMDB Metadata
+        |
+   Verified Identity
+        |
+   ONAHEYA Profiles
+   and Social Features
+
+Cloudflare R2
+      |
+Playable Media Delivery
+```
+
+The Node.js backend manages community operations,
+social relationships, watch-room coordination,
+and the ONAHEYA account-session bridge.
+
+Supabase handles email/password authentication,
+while Cloudflare R2 delivers supported media files.
+
+**Prototype storage limitation:** Some ONAHEYA
+account and social data currently use a local
+JSON store. A persistent database is required
+for reliable long-term production storage.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Install:
+
+- Node.js and npm
+- Git
+- A code editor such as Visual Studio Code
+
+Optional, depending on the features you are testing:
+
+- A Supabase project
+- A Groq API key
+- TMDB API credentials
+- Cloudflare R2 media hosting
+- Android Studio for TV development
+
+### Clone the Repository
+
 ```bash
 git clone https://github.com/sharmainelerato-glitch/ONAHEYA.git
 cd ONAHEYA
 ```
-2. Install frontend dependencies
+
+### Install Frontend Dependencies
+
 ```bash
 npm install
 ```
-3. Configure frontend environment
-Create `.env.local` in the repository root:
-```dotenv
-VITE_SOCKET_URL=http://localhost:3001
-VITE_MEDIA_BASE_URL=https://YOUR-PUBLIC-MEDIA-DOMAIN
-VITE_SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
-VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_SUPABASE_PUBLISHABLE_KEY
-```
-`VITE_SUPABASE_*` is only needed when testing the Supabase-enabled frontend. Never put a Supabase secret/service-role key or a Groq API key in a `VITE_` environment variable.
-4. Install and configure the backend
+
+### Install Backend Dependencies
+
 ```bash
 cd server
 npm install
 ```
-Configure the backend's environment in `server/.env` or your shell:
-```dotenv
-PORT=3001
-CLIENT_ORIGINS=http://localhost:5173,https://onaheya.vercel.app
-SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
-SUPABASE_PUBLISHABLE_KEY=YOUR_SUPABASE_PUBLISHABLE_KEY
-GROQ_API_KEY=YOUR_GROQ_API_KEY
-TMDB_READ_ACCESS_TOKEN=YOUR_TMDB_READ_ACCESS_TOKEN
+
+### Configure the Frontend
+
+Create `.env.local` in the root directory:
+
+```env
+VITE_SOCKET_URL=http://localhost:3001
+VITE_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+VITE_MEDIA_BASE_URL=YOUR_PUBLIC_MEDIA_BASE_URL
 ```
-Only configure integrations you intend to use. The Supabase variables require the matching `/api/auth/supabase` backend route to be implemented and deployed. Do not place production secrets in the repository.
-Start the backend using the start command defined in `server/package.json` (typically `npm start`), or its configured Node entry point. Then return to the project root and start the frontend:
+
+For local development without R2 hosting, the media
+base URL may be omitted if the selected media exists
+at the paths expected by the frontend.
+
+### Configure the Backend
+
+Create `server/.env`:
+
+```env
+PORT=3001
+CLIENT_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
+SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+GROQ_API_KEY=YOUR_GROQ_API_KEY
+TMDB_READ_ACCESS_TOKEN=YOUR_TMDB_TOKEN
+```
+
+Some integrations are optional for starting the
+application but are needed for their related features.
+
+Never commit `.env` files, database credentials,
+secret keys, or personal tokens to GitHub.
+
+### Start the Backend
+
+Open a terminal:
+
 ```bash
-cd ..
+cd server
 npm run dev
 ```
-Open the local URL shown by Vite (normally `http://localhost:5173`).
-5. Production build
+
+Use the start script defined in `server/package.json`
+if the development command differs.
+
+### Start the Frontend
+
+Open another terminal in the project root:
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed by Vite, typically:
+
+http://localhost:5173
+
+### Production Build
+
 ```bash
 npm run build
-npm run preview
 ```
-The frontend build outputs static files to `dist/`.
-Authentication status
-ONAHEYA originally implemented username/password registration, password hashing, and backend-issued session tokens. Those tokens authorize profiles and social routes.
-A Supabase email-authentication upgrade is being integrated to support:
-Email, unique username, and password registration
-Email confirmation
-Email/password sign-in
-Forgot-password emails and password reset
-A secure identity bridge into existing ONAHEYA profiles
-Important: The Supabase flow must be tested end to end and the backend bridge must be deployed before these capabilities should be considered production-ready. Older username-based accounts require an explicit, verified account-linking process; they must not be reassigned based on a matching username or email alone.
-Architecture
-```text
-Browser / React + Vite (Vercel)
-   |         |               |
-   |         |               +--> Cloudflare R2 (configured demo video files)
-   |         +------------------> Supabase Auth (email sign-in / recovery; integration in progress)
-   |
-   +--> Express API + Socket.IO (Render)
-            |--> Profile and social APIs
-            |--> Watch room synchronization
-            |--> Groq integration (server-side)
-            +--> TMDB metadata requests (when configured)
-```
-Current limitations and next steps
-Persistent storage: The current backend prototype stores account and social data in a local JSON file. On an ephemeral Render filesystem, those records may be lost after a restart or redeploy. Migrating to durable database storage is a priority before production use.
-Authentication migration: Supabase integration and safe linking of legacy accounts need complete end-to-end verification.
-TV support: A remote-friendly Fire TV / Android TV experience is a development target. A verified native TV package and emulator/device demonstration are not claimed by this README.
-Media licensing: The playable catalogue is a demonstration, not a commercial streaming library. Any expansion requires the appropriate distribution rights.
-Offline playback: Depends on browser capabilities, storage, and allowed media sources; it should not be interpreted as DRM-enabled commercial offline viewing.
-Deployment: Media-host configuration, CORS, environment variables, and external service quotas can affect functionality.
-Built with a focus on connection
-ONAHEYA is designed around more than simply pressing Play. It explores how shared reactions, conversations, meaningful moments, and community discovery can make screen-based entertainment feel less solitary.
-Different places. Same room. ♡
+
+The compiled frontend will be generated in `dist/`.
+
+### Health Check
+
+When the backend is running locally, open:
+
+http://localhost:3001/health
+
+A successful response indicates that the API
+process is responding.
+
 ---
-Project
-Developed by Lerato Sharmaine Mokgatla.  
-GitHub: @sharmainelerato-glitch
-Acknowledgments
-TMDB for movie and TV metadata where used. ONAHEYA is not endorsed or certified by TMDB.
-The open-source tools and services used to build the prototype.
+
+## Deployment
+
+### Frontend — Vercel
+
+Production website:
+
+https://onaheya.vercel.app
+
+Recommended Vercel build configuration:
+
+| Setting | Value |
+|---------|-------|
+| Framework | Vite |
+| Build command | npm run build |
+| Output directory | dist |
+| Install command | npm ci |
+
+Frontend environment variables must be configured
+in the Vercel project settings.
+
+### Backend — Render
+
+Backend base URL:
+
+https://onaheya-backend.onrender.com
+
+The backend uses Express and Socket.IO.
+
+Configure production environment variables through
+Render's dashboard and include the deployed
+frontend origin in `CLIENT_ORIGINS`.
+
+The backend must use persistent storage before
+the platform is used for important real-user data.
+
+---
+
+## Responsible Use and Content Rights
+
+ONAHEYA is a technology prototype and social
+entertainment application.
+
+The repository's software license does not grant
+redistribution rights to third-party films, music,
+books, posters, logos, or other licensed materials.
+
+Playable media must be used according to the
+applicable copyright, attribution, and licensing
+requirements.
+
+TMDB is used for metadata where configured.
+TMDB metadata is separate from movie playback rights.
+
+The project is not affiliated with or endorsed by
+Amazon, TMDB, Groq, Supabase, or Cloudflare.
+
+---
+
+## Security and Privacy Notes
+
+- Supabase access tokens are verified server-side
+  before creating ONAHEYA sessions.
+- Protected social endpoints require authentication.
+- Private messaging is restricted to authorized
+  participants.
+- Room hosts control selected room permissions.
+- Environment secrets must remain outside Git.
+- Legacy accounts require secure ownership
+  verification before migration.
+
+The application is still under development and
+has not undergone a comprehensive production
+security audit.
+
+---
+
+## Development Roadmap
+
+- [x] React streaming interface
+- [x] Backend API
+- [x] Real-time watch rooms
+- [x] Synchronized playback
+- [x] Community and social profiles
+- [x] Following and notifications
+- [x] Direct and group messaging
+- [x] Movie Dates
+- [x] Story Circles
+- [x] Cloud-hosted demo media
+- [x] Supabase email authentication integration
+- [x] Password recovery implementation
+- [ ] Complete migration of legacy accounts
+- [ ] Move social data to persistent database storage
+- [ ] Complete Android TV application wrapper
+- [ ] Implement and test D-pad navigation
+- [ ] Validate Fire TV playback and usability
+- [ ] Test the TV experience in the emulator
+- [ ] Publish the TV demonstration video
+- [ ] Improve accessibility and automated testing
+- [ ] Expand the licensed content catalogue
+
+Completed items describe implemented prototype
+features, not a guarantee of production readiness.
+
+---
+
+## Contributing
+
+Contributions, suggestions, bug reports, and
+improvements are welcome.
+
+To contribute:
+
+1. Fork this repository.
+2. Create a feature branch.
+3. Make and test your changes.
+4. Open a pull request explaining what changed.
+
+Please do not include credentials, private user
+information, or unlicensed media in contributions.
+
+You can also report issues through the repository's
+GitHub Issues page.
+
+---
+
+## License
+
+ONAHEYA's original source code is made available
+under the **MIT License**.
+
+See [LICENSE](LICENSE) for the complete terms.
+
+Third-party libraries, media assets, fonts,
+trademarks, and external services remain subject
+to their own licenses and terms.
+
+---
+
+<div align="center">
+
+### Different Places. Same Room. ♡
+
+**ONAHEYA**
+
+Built for stories worth sharing.
+
+[Explore ONAHEYA](https://onaheya.vercel.app)
+
+</div>
