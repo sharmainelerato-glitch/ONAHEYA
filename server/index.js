@@ -4,8 +4,24 @@ import http from "node:http";
 import { randomInt, randomUUID, randomBytes, scryptSync, timingSafeEqual, createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import "dotenv/config";
 import { Server } from "socket.io";
+import { createClient } from "@supabase/supabase-js";
 
+const supabase =
+  process.env.SUPABASE_URL &&
+  process.env.SUPABASE_PUBLISHABLE_KEY
+    ? createClient(
+        process.env.SUPABASE_URL,
+        process.env.SUPABASE_PUBLISHABLE_KEY,
+        {
+          auth: {
+            persistSession: false,
+            autoRefreshToken: false,
+          },
+        }
+      )
+    : null;
 const app = express();
 const server = http.createServer(app);
 const origins = (process.env.CLIENT_ORIGINS || "http://localhost:5173,http://127.0.0.1:5173")
@@ -103,6 +119,119 @@ app.post("/api/auth/login", (req, res) => {
   if (!account || !timingSafeEqual(actual, expected)) return res.status(401).json({ error: "Incorrect username or password." });
   res.json({ token: issueSession(account), profile: publicProfile(account) });
 });
+
+/*
+ * Supabase → ONAHEYA account bridge
+ *
+ * Supabase verifies the user's identity.
+ * ONAHEYA preserves its existing profile IDs and sessions.
+ */
+
+app.post("/api/auth/supabase", async (req, res) => {
+  try {
+    const accessToken = req.body?.accessToken;
+
+    if (
+      typeof accessToken !== "string" ||
+      accessToken.length > 8192
+    ) {
+      return res.status(400).json({
+        error: "A valid Supabase session is required.",
+      });
+    }
+
+    // Validate the token with Supabase.
+    // Never trust a user ID supplied by the browser.
+    const { data, error } =
+      await supabase.auth.getUser(accessToken);
+
+    const user = data?.user;
+
+    if (error || !user) {
+      return res.status(401).json({
+        error: "Your session has expired. Please sign in again.",
+      });
+    }
+
+    if (!user.email || !user.email_confirmed_at) {
+      return res.status(403).json({
+        error: "Please verify your email address first.",
+      });
+    }
+
+    // Existing Supabase-linked ONAHEYA account.
+    let account = accountStore.accounts.find(
+      (a) => a.supabaseUserId === user.id
+    );
+
+    if (!account) {
+      const username = String(
+        req.body?.username ||
+          user.user_metadata?.username ||
+          ""
+      )
+        .trim()
+        .toLowerCase();
+
+      if (!/^[a-z0-9_]{3,20}$/.test(username)) {
+        return res.status(400).json({
+          error: "Choose a username of 3–20 letters, numbers or underscores.",
+        });
+      }
+
+      // Never take ownership of an old account merely
+      // because someone selected its username.
+      if (
+        accountStore.accounts.some(
+          (a) => a.username === username
+        )
+      ) {
+        return res.status(409).json({
+          error: "That username is already taken. Choose another username.",
+        });
+      }
+
+      if (
+        accountStore.accounts.some(
+          (a) => a.email?.toLowerCase() === user.email.toLowerCase()
+        )
+      ) {
+        return res.status(409).json({
+          error: "This email needs to be linked to its existing ONAHEYA account.",
+        });
+      }
+
+      account = {
+        id: randomUUID(),
+        supabaseUserId: user.id,
+        email: user.email.toLowerCase(),
+        username,
+        displayName: username,
+        bio: "",
+        favoriteGenres: [],
+        createdAt: new Date().toISOString(),
+      };
+
+      accountStore.accounts.push(account);
+      saveAccounts();
+    }
+
+    // The rest of ONAHEYA continues using its own session.
+    const token = issueSession(account);
+
+    return res.json({
+      token,
+      profile: publicProfile(account),
+    });
+  } catch (error) {
+    console.error("Supabase authentication failed:", error);
+
+    return res.status(500).json({
+      error: "Unable to complete sign in.",
+    });
+  }
+});
+
 app.get("/api/me", authed, (req, res) => res.json({ profile: publicProfile(req.account) }));
 app.patch("/api/me", authed, (req, res) => {
   const displayName = typeof req.body?.displayName === "string" ? req.body.displayName.trim() : "";
